@@ -1,10 +1,8 @@
-# React-Express Boiler-Plate
+# My Portfolio
 
-My personal React Express boiler plate. Made to help get up and running quickly on new MERN stack projects.
+My personal portfolio. Build in Blog, and many other features.
 
-## Getting Started
-
-When starting a new project, clone this repo with the link above and install the node modules.
+<!-- ## Getting Started
 
 Once ready begin by running:
 `npm start`
@@ -35,4 +33,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 * Hat tip to anyone whose code was used
 * Inspiration
-* etc
+* etc -->
