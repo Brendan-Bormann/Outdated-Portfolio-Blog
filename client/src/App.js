@@ -16,6 +16,7 @@ import BlogPage from './Components/Blog/BlogPage/BlogPage';
 import BlogEdit from './Components/Blog/BlogEdit/BlogEdit';
 
 // Profile //
+import Portfolio from './Components/Portfolio/Portfolio';
 
 class App extends Component {
 
@@ -38,6 +39,7 @@ class App extends Component {
           <div className="App-Header">
             <div className="nav-links">
               <Link className="waves-effect waves-light btn red" to={"/"}>Home</Link>
+              <Link className="waves-effect waves-light btn red" to={"/portfolio"}>Portfolio</Link>
               <Link className="waves-effect waves-light btn red" to={"/blog-list"}>Blogs</Link>
               <Link className="waves-effect waves-light btn red" to={"/blog-write"}>Write</Link>
             </div>
@@ -48,6 +50,8 @@ class App extends Component {
           <Route exact path="/blog-edit/:id" component={BlogEdit} />
           <Route exact path="/blog/:id" component={BlogPage} />
           <Route exact path="/blog-list" component={BlogList} />
+
+          <Route exact path="/portfolio" component={Portfolio} />
           {/* <Link to="/contact">Contact</Link>
           <Link to={`${props.match.url}/learn`} className="btn btn-default">Hello</Link>
 

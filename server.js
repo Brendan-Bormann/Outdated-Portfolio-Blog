@@ -3,11 +3,14 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const app = express();
 
+// Mlab login //
+var mLog = require("./login");
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 const mongoose = require("mongoose");
-mongoose.connect('mongodb://admin:password1@ds159527.mlab.com:59527/blog_dev', { useNewUrlParser: true });
+mongoose.connect(`mongodb://${mLog.username}:${mLog.password}@ds159527.mlab.com:59527/blog_dev`, { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 
 var db = mongoose.connection;
