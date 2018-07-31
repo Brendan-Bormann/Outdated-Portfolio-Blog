@@ -6,11 +6,16 @@ import axios from 'axios';
 
 import './App.css';
 
+// Landing Page //
 import Home from './Components/Home/Home';
+
+// Blog stuff //
 import BlogList from './Components/Blog/BlogList/BlogList';
 import BlogWriter from './Components/Blog/BlogWriter/BlogWriter';
 import BlogPage from './Components/Blog/BlogPage/BlogPage';
 import BlogEdit from './Components/Blog/BlogEdit/BlogEdit';
+
+// Profile //
 
 class App extends Component {
 
@@ -27,13 +32,17 @@ class App extends Component {
 
   render() {
     return (
-      <div className="Navbar">
-      {/* <nav className="nav">
-        <h2>Brendan Bormann</h2>
-        <hr />
-      </nav> */}
+      <div className="App">
       <Router>
         <div>
+          <div className="App-Header">
+            <div className="nav-links">
+              <Link className="waves-effect waves-light btn red" to={"/"}>Home</Link>
+              <Link className="waves-effect waves-light btn red" to={"/blog-list"}>Blogs</Link>
+              <Link className="waves-effect waves-light btn red" to={"/blog-write"}>Write</Link>
+            </div>
+            <hr />
+          </div>
           
           <Route exact path="/blog-write" component={BlogWriter} />
           <Route exact path="/blog-edit/:id" component={BlogEdit} />

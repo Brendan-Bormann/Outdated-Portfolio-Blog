@@ -49,8 +49,8 @@ class BlogEdit extends Component {
           imageUrl: this.state.blog.imageUrl
         })
           .then(res => {
-            console.log(res);
-            alert("Success!");
+            alert("Updated blog.");
+            window.location.assign("/blog/" + this.state.blog._id);
           })
           .catch(err => console.log(err));
       } else {
@@ -64,10 +64,9 @@ class BlogEdit extends Component {
   render() {
     return (
       <div className="BlogWriter">
-        <h2 onClick={() => console.log(this.state.blog)}>
-            Write a New Blog
+        <h2>
+            Edit Blog
         </h2>
-        <Link to={"/blog-list"}>Back to blog List</Link>
         <br />
         <br />
         <form>

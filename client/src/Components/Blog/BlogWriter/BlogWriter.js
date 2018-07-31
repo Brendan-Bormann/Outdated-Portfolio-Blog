@@ -33,8 +33,8 @@ class BlogWriter extends Component {
           imageUrl: this.state.imageUrl
         })
           .then(res => {
-            console.log(res);
             alert("Success!");
+            window.location.assign("/blog-list/")
           })
           .catch(err => console.log(err));
       } else {
@@ -51,11 +51,10 @@ class BlogWriter extends Component {
         <h2>
             Write a New Blog
         </h2>
-        <Link to={"/blog-list"}>Back to blog List</Link>
         <br />
         <br />
         <form>
-              <label for="title-input">Article Title. Keep under ~25 characters. Currently: [{this.state.title.length}/25]</label>
+              <label htmlFor="title-input">Article Title. Keep under ~25 characters. Currently: [{this.state.title.length}/25]</label>
               <input id="title-input"
                 value={this.state.title}
                 onChange={this.handleInputChange}
@@ -67,7 +66,7 @@ class BlogWriter extends Component {
               <br />
               <br />
 
-              <label for="imageUrl">Article Image. Ideally banner shaped. Example 1920x500px</label>
+              <label htmlFor="imageUrl">Article Image. Ideally banner shaped. Example 1920x500px</label>
               <input id="imageUrl"
                 value={this.state.imageUrl}
                 onChange={this.handleInputChange}
@@ -79,7 +78,7 @@ class BlogWriter extends Component {
               <br />
               <br />
 
-              <label for="textarea1">Summary. This is displayed on the thumbnail cards. (Limit 150 Characters)</label>
+              <label htmlFor="textarea1">Summary. This is displayed on the thumbnail cards. (Limit 150 Characters)</label>
               <textarea id="textarea1" class="materialize-textarea"
                 value={this.state.summary}
                 onChange={this.handleInputChange}
@@ -91,7 +90,7 @@ class BlogWriter extends Component {
               <br />
               <br />
 
-              <label for="textarea2">Blog Article</label>
+              <label htmlFor="textarea2">Blog Article</label>
               <textarea id="textarea2" class="materialize-textarea"
                 value={this.state.content}
                 onChange={this.handleInputChange}

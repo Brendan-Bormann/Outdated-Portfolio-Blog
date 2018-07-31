@@ -18,10 +18,12 @@ class Blog extends Component {
   loadBlogs = () => {
     API.getAllBlogs()
       .then(res => {
-        console.log(res);
         this.setState({ blogs: res.data});
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        console.log(err);
+        alert("There was an error getting blogs. Sorry!");
+      });
   };
 
   render() {
@@ -30,10 +32,9 @@ class Blog extends Component {
         <h2 className="BlogList-Title">
             Blog List
         </h2>
-        <Link className="btn" to={"/blog-write"}>Write a blog</Link>
         <br />
         <div className="BlogList-container">
-          {this.state.blogs.map(blog => <BlogLI blog={blog} />)}
+          {this.state.blogs.map(blog => <BlogLI blog={blog} key={blog._id}/>)}
         </div>
       </div>
     );

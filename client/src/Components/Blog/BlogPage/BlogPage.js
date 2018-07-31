@@ -48,24 +48,19 @@ class BlogPage extends Component {
       <div className="BlogPage">
         <h1>Blog Page</h1>
         <br/>
-        <Link to={"/blog-list"}>Back</Link>
-        <h3 className="BlogLI-Title">
+        <h3 className="BlogPage-Title">
             {this.state.blog.title}
         </h3>
-        <span className="BlogLI-date">
+        <p className="BlogPage-Date">
             {this.state.blog.date}
-        </span>
-        <hr />
-        <br />
-        <div>
-          <img class="blogpage-image" alt="article" src={this.state.blog.imageUrl} />
-        </div>
-        <hr />
+        </p>
+          <img className="BlogPage-Image" alt="article" src={this.state.blog.imageUrl} />
         <p className="flow-text">{this.state.blog.summary}</p>
         <hr />
         <p className="flow-text">{this.state.blog.content}</p>
         <br />
         <br />
+        <Link className="btn" to={"/blog-edit/" + this.props.match.params.id}>Edit</Link>
       </div>
     );
   }

@@ -25,7 +25,6 @@ class Home extends Component {
         <h1>Brendan Bormann</h1>
         <hr />
         <p>Welcome to my personal site!</p>
-        <Link to="/blog-list">Blog List</Link>
       </div>
     );
   }

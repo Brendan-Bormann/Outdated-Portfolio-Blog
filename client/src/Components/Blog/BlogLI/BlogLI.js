@@ -34,7 +34,6 @@ class BlogLI extends Component {
             <hr />
             <p>{this.props.blog.summary}</p>
             <Link className="waves-effect waves-light btn red BlogLI-Corner" to={"/blog/" + this.props.blog._id}>Read</Link>
-            {/* <a className="waves-effect waves-light btn" href={"/blog/" + this.props.blog._id}>Read</a> */}
         </div>
       </div>
     );

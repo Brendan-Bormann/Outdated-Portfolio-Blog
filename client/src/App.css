@@ -3,11 +3,27 @@
     font-size: 5vw;
 } */
 
-.nav {
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+  
+.App {
+    margin: 0;
+    padding: 0;
+}
+
+.App-Header {
     width: 100vw;
-    height: 15vh;
-    position: fixed;
-    top: 0;
-    background: rgb(112, 112, 112);
     text-align: center;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-around;
+
+    margin: 0 auto;
 }
