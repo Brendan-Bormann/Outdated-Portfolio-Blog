@@ -1,0 +1,13 @@
+/* body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 5vw;
+} */
+
+.nav {
+    width: 100vw;
+    height: 15vh;
+    position: fixed;
+    top: 0;
+    background: rgb(112, 112, 112);
+    text-align: center;
+}

@@ -1,0 +1,53 @@
+.BlogLI {
+    margin: 2.5% 0;
+    border: solid 2px rgb(70, 70, 70);
+    border-radius: 10pt;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+
+    width: 95vw;
+}
+
+.BlogLI-TitleBox {
+    margin: 0 auto;
+}
+
+.BlogLI-Title {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 150%;
+    font-weight: bold;
+    margin: 1% 0 0 0;
+}
+
+.BlogLI-Content {
+    margin: 0 5vw;
+}
+
+.BlogLI-Thumbnail {
+    height: 35vmin;
+    width: 35vmin;
+    margin: 0;
+    border-right: 2px solid rgb(70, 70, 70);
+}
+
+.BlogLI-date {
+    font-size: 20pt;
+    font-style: italic;
+    margin: 0 auto;
+}
+
+.BlogLI-Corner {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    border-left: 2px solid rgb(70, 70, 70);
+    border-top: 2px solid rgb(70, 70, 70);
+
+    border-radius: 10pt 0 0 0;
+}
