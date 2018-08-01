@@ -3,20 +3,20 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const app = express();
 
-// Mlab login //
-var mLog = require("./login");
+// env vars //
+require('dotenv').config();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 const mongoose = require("mongoose");
-mongoose.connect(`mongodb://${mLog.username}:${mLog.password}@ds159527.mlab.com:59527/blog_dev`, { useNewUrlParser: true });
+mongoose.connect(`mongodb://${process.env.MLAB_USER}:${process.env.MLAB_PASS}@ds159527.mlab.com:59527/blog_dev`, { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-    console.log(`Connected to MongoDB as user ${mLog.username}.`);
+    console.log(`Connected to MongoDB.`);
 });
 
 const PORT = 8080;
