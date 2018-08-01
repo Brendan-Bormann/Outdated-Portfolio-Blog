@@ -23,13 +23,6 @@ const PORT = 8080;
 
 app.use("/api", require('./routes'));
 
-app.get("/test", (req, res) => {
-    fluffy.save(function (err, fluffy) {
-        if (err) return console.error(err);
-    });
-    res.send("Test.");
-});
-
 app.use(express.static(__dirname + '/client/build'));
 
 app.get('*', (req, res) => {
