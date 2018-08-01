@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './BlogWriter.css';
 import API from "../../../utils/API";
-import { Link } from "react-router-dom";
 
 class BlogWriter extends Component {
 
   state = {
-    title: ""
+    title: "",
+    summary: ""
   }
 
   handleInputChange = event => {
@@ -78,7 +78,7 @@ class BlogWriter extends Component {
               <br />
               <br />
 
-              <label htmlFor="textarea1">Summary. This is displayed on the thumbnail cards. (Limit 150 Characters)</label>
+              <label htmlFor="textarea1">Article Summary. Keep ~150 characters. Currently: [{this.state.summary.length}/150]</label>
               <textarea id="textarea1" class="materialize-textarea"
                 value={this.state.summary}
                 onChange={this.handleInputChange}

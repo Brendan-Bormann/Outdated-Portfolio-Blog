@@ -60,7 +60,7 @@ class BlogPage extends Component {
         <p className="flow-text">{this.state.blog.content}</p>
         <br />
         <br />
-        <Link className="btn" to={"/blog-edit/" + this.props.match.params.id}>Edit</Link>
+        <Link to={"/blog-edit/" + this.props.match.params.id} id="BlogPage-Edit" class="btn-floating btn-large waves-effect waves-light red">Edit</Link>
       </div>
     );
   }

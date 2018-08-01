@@ -35,6 +35,7 @@ class Blog extends Component {
         <br />
         <div className="BlogList-container">
           {this.state.blogs.map(blog => <BlogLI blog={blog} key={blog._id}/>)}
+          <Link to={"/blog-write"} id="BlogList-Edit" class="btn-floating btn-large waves-effect waves-light red">New</Link>
         </div>
       </div>
     );

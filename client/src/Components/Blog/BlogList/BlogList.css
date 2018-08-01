@@ -5,3 +5,9 @@
 .BlogList-Title {
     text-align: center;
 }
+
+#BlogList-Edit {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+}

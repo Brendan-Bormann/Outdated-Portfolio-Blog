@@ -41,7 +41,6 @@ class App extends Component {
               <Link className="waves-effect waves-light btn red" to={"/"}>Home</Link>
               <Link className="waves-effect waves-light btn red" to={"/portfolio"}>Portfolio</Link>
               <Link className="waves-effect waves-light btn red" to={"/blog-list"}>Blogs</Link>
-              <Link className="waves-effect waves-light btn red" to={"/blog-write"}>Write</Link>
             </div>
             <hr />
           </div>

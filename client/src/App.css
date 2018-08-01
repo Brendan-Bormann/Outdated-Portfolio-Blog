@@ -27,3 +27,9 @@ body {
 
     margin: 0 auto;
 }
+
+.nav-links * {
+    flex-grow: 1;
+    border-radius: 0;
+    box-shadow: 0;
+}
