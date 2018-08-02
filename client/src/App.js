@@ -38,9 +38,9 @@ class App extends Component {
         <div>
           <div className="App-Header">
             <div className="nav-links">
-              <Link className="waves-effect waves-light btn red" to={"/"}>Home</Link>
-              <Link className="waves-effect waves-light btn red" to={"/portfolio"}>Portfolio</Link>
-              <Link className="waves-effect waves-light btn red" to={"/blog-list"}>Blogs</Link>
+              <Link className="waves-effect waves-light btn white nav-links" to={"/"}>Home</Link>
+              <Link className="waves-effect waves-light btn white nav-links" to={"/portfolio"}>Portfolio</Link>
+              <Link className="waves-effect waves-light btn white nav-links" to={"/blog-list"}>Blogs</Link>
             </div>
             <hr />
           </div>

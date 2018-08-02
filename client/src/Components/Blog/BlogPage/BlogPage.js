@@ -4,14 +4,16 @@ import moment from 'moment';
 import './BlogPage.css';
 import { Link } from "react-router-dom";
 
+import placeholderImg from '../../../images/img.svg';
+
 class BlogPage extends Component {
 
   state = {
       blog: {
-          content: "Content",
+          content: "Blog couldn't be loaded.",
           date: "Date",
-          imageUrl: "URL",
-          summary: "Summary",
+          imageUrl: placeholderImg,
+          summary: "Blog summary...",
           title: "Title"
       }
   }
@@ -46,11 +48,9 @@ class BlogPage extends Component {
   render() {
     return (
       <div className="BlogPage">
-        <h1>Blog Page</h1>
-        <br/>
-        <h3 className="BlogPage-Title">
+        <h1 className="BlogPage-Title">
             {this.state.blog.title}
-        </h3>
+        </h1>
         <p className="BlogPage-Date">
             {this.state.blog.date}
         </p>
@@ -60,7 +60,7 @@ class BlogPage extends Component {
         <p className="flow-text">{this.state.blog.content}</p>
         <br />
         <br />
-        <Link to={"/blog-edit/" + this.props.match.params.id} id="BlogPage-Edit" class="btn-floating btn-large waves-effect waves-light red">Edit</Link>
+        <Link to={"/blog-edit/" + this.props.match.params.id} id="BlogPage-Edit" className="btn-floating btn-large waves-effect waves-light blue">Edit</Link>
       </div>
     );
   }

@@ -1,5 +1,6 @@
 .BlogPage {
     margin: 0 5vw;
+    word-wrap: break-word;
 }
 
 #BlogPage-Edit {
@@ -9,10 +10,9 @@
 }
 
 .BlogPage-Title {
-    font-size: 10vw;
+    font-size: 15vw;
     text-align: center;
     font-family: 'Roboto Condensed', sans-serif;
-    font-weight: bold;
 }
 
 .BlogPage-Date {

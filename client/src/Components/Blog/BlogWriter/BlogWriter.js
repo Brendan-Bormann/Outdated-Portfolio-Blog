@@ -48,9 +48,9 @@ class BlogWriter extends Component {
   render() {
     return (
       <div className="BlogWriter">
-        <h2>
+        <h1 className="app-page-title">
             Write a New Blog
-        </h2>
+        </h1>
         <br />
         <br />
         <form>

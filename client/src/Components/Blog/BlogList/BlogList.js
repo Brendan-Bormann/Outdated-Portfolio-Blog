@@ -29,13 +29,13 @@ class Blog extends Component {
   render() {
     return (
       <div className="BlogList">
-        <h2 className="BlogList-Title">
+        <h1 className="app-page-title">
             Blog List
-        </h2>
+        </h1>
         <br />
         <div className="BlogList-container">
           {this.state.blogs.map(blog => <BlogLI blog={blog} key={blog._id}/>)}
-          <Link to={"/blog-write"} id="BlogList-Edit" class="btn-floating btn-large waves-effect waves-light red">New</Link>
+          <Link to={"/blog-write"} id="BlogList-Edit" className="btn-floating btn-large waves-effect waves-light blue">New</Link>
         </div>
       </div>
     );

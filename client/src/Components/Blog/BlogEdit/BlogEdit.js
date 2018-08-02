@@ -54,23 +54,41 @@ class BlogEdit extends Component {
           })
           .catch(err => console.log(err));
       } else {
-        alert(`Summary is ${this.state.summary.length - 150} characters over limit.`);
+        alert(`Summary is ${this.state.blog.summary.length - 150} characters over limit.`);
       }
     } else {
       alert("Please fill out all areas.");
     }
   };
 
+  deleteBlog = event => {
+    event.preventDefault();
+    if (window.confirm("Are you sure you want to delete this blog?")) {
+      API.deleteBlog(this.state.blog._id)
+      .then(response => {
+        alert("Blog is now gone.");
+        window.location.assign("/blog-list");
+      })
+      .catch(error => alert(error));
+      
+    }
+    else alert("Blog has not been deleted.");
+  }
+
+  onStateChange() {
+    console.log("state changed.");
+  }
+
   render() {
     return (
       <div className="BlogWriter">
-        <h2>
-            Edit Blog
-        </h2>
+        <h1 className="app-page-title">
+          Edit
+        </h1>
         <br />
         <br />
         <form>
-              <label htmlFor="title-input">Article Title. Keep under ~25 characters. Currently: [{this.state.blog.title.length}/25]</label>
+              <label htmlFor="title-input">Article Title. Currently: [{this.state.blog.title.length}/25]</label>
               <input id="title-input"
                 value={this.state.blog.title}
                 onChange={this.handleInputChange}
@@ -78,11 +96,7 @@ class BlogEdit extends Component {
                 placeholder="Title"
               />
 
-              <br />
-              <br />
-              <br />
-
-              <label htmlFor="imageUrl">Article Image. Ideally banner shaped. Example 1920x500px</label>
+              <label htmlFor="imageUrl">Article Image. Ideally banner shaped.</label>
               <input id="imageUrl"
                 value={this.state.blog.imageUrl}
                 onChange={this.handleInputChange}
@@ -90,21 +104,13 @@ class BlogEdit extends Component {
                 placeholder="Image URL"
               />
 
-              <br />
-              <br />
-              <br />
-
-              <label htmlFor="textarea1">Article Summary. Keep ~150 characters. Currently: [{this.state.blog.summary.length}/150]</label>
+              <label htmlFor="textarea1">Article Summary. Currently: [{this.state.blog.summary.length}/150]</label>
               <textarea id="textarea1" className="materialize-textarea"
                 value={this.state.blog.summary}
                 onChange={this.handleInputChange}
                 name="summary"
                 placeholder="Summary"
               />
-              
-              <br />
-              <br />
-              <br />
 
               <label htmlFor="textarea2">Blog Article</label>
               <textarea id="textarea2" className="materialize-textarea"
@@ -114,12 +120,14 @@ class BlogEdit extends Component {
                 placeholder="Content"
               />
 
-              <br />
-              <br />
-
-              <button className="waves-effect waves-light btn" onClick={this.handleFormSubmit} >
-                Update Blog
-              </button>
+              <div className="BlogEdit-Buttons">
+                <button className="waves-effect waves-light btn" onClick={this.handleFormSubmit} >
+                  Update Blog
+                </button>
+                <button className="waves-effect waves-light btn red" onClick={this.deleteBlog} >
+                  Delete Blog
+                </button>
+              </div>
             </form>
       </div>
     );

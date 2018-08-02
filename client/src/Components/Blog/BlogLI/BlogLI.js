@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
 import moment from 'moment';
 import './BlogLI.css';
 
+import placeholderImg from '../../../images/img.svg';
 
 class BlogLI extends Component {
 
   state = {
-    date: ""
+    date: "",
+    imageUrl: placeholderImg
   }
 
   date = () => {
@@ -16,12 +17,17 @@ class BlogLI extends Component {
 
   componentDidMount() {
       this.date();
+      this.setState({
+        "imageUrl": this.props.blog.imageUrl
+      });
   }
 
   render() {
     return (
-      <div className="BlogLI" key={this.props.blog._id}>
-        <img className="BlogLI-Thumbnail" alt="thumbnail" src={this.props.blog.imageUrl} />
+      <div className="BlogLI" key={this.props.blog._id} onClick={() => window.location.assign("/blog/" + this.props.blog._id)}>
+        <div className="BlogLI-Thumbnail">
+          <img className="BlogLI-Thumb" alt="thumbnail" src={this.state.imageUrl} />
+        </div>
         <div className="BlogLI-Content">
             <div className="BlogLI-TitleBox">
                 <h3 className="BlogLI-Title">
@@ -30,10 +36,9 @@ class BlogLI extends Component {
                 <span className="BlogLI-date">
                     {this.state.date}
                 </span>
-                </div>
+            </div>
             <hr />
-            <p>{this.props.blog.summary}</p>
-            <Link className="waves-effect waves-light btn red BlogLI-Corner" to={"/blog/" + this.props.blog._id}>Read</Link>
+            <p className="BlogLI-Summary">{this.props.blog.summary}</p>
         </div>
       </div>
     );
