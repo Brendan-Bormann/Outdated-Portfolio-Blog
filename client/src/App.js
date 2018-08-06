@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-// eslint-disable-next-line
 import { Link } from "react-router-dom";
+import { Switch } from "react-router-dom";
 import axios from 'axios';
 
 import './App.css';
@@ -18,6 +18,12 @@ import BlogEdit from './Components/Blog/BlogEdit/BlogEdit';
 // Profile //
 import Portfolio from './Components/Portfolio/Portfolio';
 
+// git repos //
+import RepoList from './Components/Portfolio/RepoList/RepoList';
+
+// 404 page //
+import NoMatch from './Components/NoMatch/NoMatch';
+
 class App extends Component {
 
   state = {
@@ -27,8 +33,12 @@ class App extends Component {
   getData = (that) => {
     axios.get('/back')
     .then(function (response) {
-      that.setState({"text": response.data.info});
+      console.log("k");
     })
+  }
+
+  componentDidMount() {
+    this.getData(this);
   }
 
   render() {
@@ -44,22 +54,25 @@ class App extends Component {
             </div>
             <hr />
           </div>
-          
-          <Route exact path="/blog-write" component={BlogWriter} />
-          <Route exact path="/blog-edit/:id" component={BlogEdit} />
-          <Route exact path="/blog/:id" component={BlogPage} />
-          <Route exact path="/blog-list" component={BlogList} />
+          <Switch>
+            <Route path="/blog-write" component={BlogWriter} />
+            <Route path="/blog-edit/:id" component={BlogEdit} />
+            <Route path="/blog/:id" component={BlogPage} />
+            <Route path="/blog-list" component={BlogList} />
 
-          <Route exact path="/portfolio" component={Portfolio} />
-          {/* <Link to="/contact">Contact</Link>
-          <Link to={`${props.match.url}/learn`} className="btn btn-default">Hello</Link>
+            <Route path="/portfolio" component={Portfolio} />
+            <Route path="/github" component={RepoList} />
+            {/* <Link to="/contact">Contact</Link>
+            <Link to={`${props.match.url}/learn`} className="btn btn-default">Hello</Link>
 
-          <nav>
-            <li className={window.location.pathname === "/" ? "active" : ""}>
-              <Link to="/">Home</Link>
-            </li>
-          </nav> */}
-          <Route exact path="/" component={Home} />
+            <nav>
+              <li className={window.location.pathname === "/" ? "active" : ""}>
+                <Link to="/">Home</Link>
+              </li>
+            </nav> */}
+            <Route exact path="/" component={Home} />
+            <Route path="*" component={NoMatch} />
+          </Switch>
         </div>
       </Router>
       </div>

@@ -1,0 +1,62 @@
+.ProjectLI {
+    margin: 2.5% auto;
+    border-top: 3px solid rgba(70, 70, 70, 0.25);
+    border-bottom: 3px solid rgba(70, 70, 70, 0.25);
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+
+    width: 95vw;
+    height: 100%;
+
+    word-wrap: normal;
+}
+
+.ProjectLI-Thumbnail {
+    /* set the desired width/height and margin here */
+  width: 35vw;
+  height: 35vw;
+
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+
+  flex-shrink: 0;
+  border-right: 3px solid rgba(70, 70, 70, 0.25);
+}
+
+.ProjectLI-Thumbnail img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 100%;
+    width: auto;
+    -webkit-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+}
+  
+.ProjectLI-Info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    padding: 0 5%;
+}
+
+.ProjectLI-Title {
+    font-size: 7.5vw;
+    margin: 0;
+}
+
+.ProjectLI-Date {
+    font-style: italic;
+    margin: 0;
+}
+
+.ProjectLI-Summary {
+
+}

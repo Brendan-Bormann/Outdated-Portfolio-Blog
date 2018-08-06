@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-
 import './Portfolio.css';
+
+import ProjectList from './Projects/ProjectList';
 
 class Portfolio extends Component {
 
@@ -12,6 +13,8 @@ class Portfolio extends Component {
         <h1 className="app-page-title">Portfolio</h1>
         <hr />
         <p>Welcome to my Portfolio!</p>
+        <br />
+        <ProjectList />
       </div>
     );
   }
