@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Switch } from "react-router-dom";
-import axios from 'axios';
+// import axios from 'axios';
 
 import './App.css';
 
@@ -30,17 +30,6 @@ class App extends Component {
     currentPage: "/"
   }
 
-  getData = (that) => {
-    axios.get('/back')
-    .then(function (response) {
-      console.log("k");
-    })
-  }
-
-  componentDidMount() {
-    this.getData(this);
-  }
-
   render() {
     return (
       <div className="App">
@@ -50,6 +39,7 @@ class App extends Component {
             <div className="nav-links">
               <Link className="waves-effect waves-light btn white nav-links" to={"/"}>Home</Link>
               <Link className="waves-effect waves-light btn white nav-links" to={"/portfolio"}>Portfolio</Link>
+              <Link className="waves-effect waves-light btn white nav-links" to={"/github"}>My Work</Link>
               <Link className="waves-effect waves-light btn white nav-links" to={"/blog-list"}>Blogs</Link>
             </div>
             <hr />

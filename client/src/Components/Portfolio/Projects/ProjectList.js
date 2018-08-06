@@ -27,7 +27,6 @@ class ProjectList extends Component {
     API.getAllProjects()
       .then(res => {
         this.setState({ projects: res.data});
-        console.log(this.state);
       })
       .catch(err => {
         console.log(err);
@@ -37,16 +36,11 @@ class ProjectList extends Component {
 
   displayProjects = () => {
     return this.state.projects.map(data => {
-      console.log(data._id);
-      return <ProjectLI project={data} key={data._id} />
+      var i = 0;
+      var key = data._id || ++i;
+      return <ProjectLI project={data} key={key} />
     });
   }
-
-  // title:   { type: String, required: true },
-  // link:    { type: String, required: true },
-  // summary: { type: String, required: true },
-  // imageUrl:{ type: String, required: true },
-  // date:    { type: Date, default: Date.now }
 
   postProject = () => {
     API.saveProject({

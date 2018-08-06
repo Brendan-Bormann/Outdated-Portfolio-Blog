@@ -8,36 +8,26 @@ class RepoList extends Component {
 
   state = {
       repos: {
-          data: []
+          data: {
+              body: []
+          }
       }
   }
 
-//   getGit = () => {
-//     const git_info = {
-//       method: 'GET',
-//       headers: {
-//         'Authorization': 'token 13c27ce6e3f80f9a7284e7c34e618df7cb11a0a3'
-//       },
-//       url: "https://api.github.com/user/repos?sort=created",
-//     };
-//     axios(git_info)
-//       .then(res => {
-//           console.log(res);
-//           this.setState({ "repos": res });
-//       });
-//   }
-
   componentDidMount() {
     // this.getGit();
-    axios.get("/git/data")
-      .then(res => {
-          this.setState({ "repos": res });
-      });
-    let userURL = "https://api.github.com/user/:username";
+    axios.get("/api/get/git/repos")
+      .then(response => {
+          if (response) this.setState({ "repos": response });
+      })
+      .catch(err => {
+          console.log(err);
+          alert("There was an error fetching GitHub data.");
+    });
   }
 
   loadRepos = () => {
-      return this.state.repos.data.map(repo => {
+      return this.state.repos.data.body.map(repo => {
           return <RepoLI repo={repo} key={repo.id}/>;
       });
   }
@@ -47,7 +37,9 @@ class RepoList extends Component {
       <div className="RepoList">
         <h1 className="app-page-title">My GitHub Projects</h1>
         <hr />
-        {this.loadRepos()}
+        <div className="RepoList-Container">
+            {this.loadRepos()}
+        </div>
         <br />
       </div>
     );

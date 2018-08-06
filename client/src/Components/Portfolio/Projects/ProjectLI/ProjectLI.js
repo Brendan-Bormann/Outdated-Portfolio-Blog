@@ -19,7 +19,7 @@ class ProjectLI extends Component {
 
   render() {
     return (
-      <div className="ProjectLI" key={this.props.project._id} onClick={() => window.location.href = this.props.project.link}>
+      <div className="ProjectLI" key={this.props.project.key} onClick={() => window.location.href = this.props.project.link}>
         <div className="ProjectLI-Thumbnail">
             <img alt="project-pic" src={this.props.project.imageUrl} />
         </div>
