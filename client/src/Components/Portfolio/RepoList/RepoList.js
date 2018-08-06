@@ -12,23 +12,27 @@ class RepoList extends Component {
       }
   }
 
-  getGit = () => {
-    const git_info = {
-      method: 'GET',
-      headers: {
-        'Authorization': 'token 13c27ce6e3f80f9a7284e7c34e618df7cb11a0a3'
-      },
-      url: "https://api.github.com/user/repos?sort=created",
-    };
-    axios(git_info)
-      .then(res => {
-          console.log(res);
-          this.setState({ "repos": res });
-      });
-  }
+//   getGit = () => {
+//     const git_info = {
+//       method: 'GET',
+//       headers: {
+//         'Authorization': 'token 13c27ce6e3f80f9a7284e7c34e618df7cb11a0a3'
+//       },
+//       url: "https://api.github.com/user/repos?sort=created",
+//     };
+//     axios(git_info)
+//       .then(res => {
+//           console.log(res);
+//           this.setState({ "repos": res });
+//       });
+//   }
 
   componentDidMount() {
-    this.getGit();
+    // this.getGit();
+    axios.get("/git/data")
+      .then(res => {
+          this.setState({ "repos": res });
+      });
     let userURL = "https://api.github.com/user/:username";
   }
 

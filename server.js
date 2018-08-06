@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
-const request = require('request');
+const axios = require("axios");
 const app = express();
 
 // env vars //
@@ -25,6 +25,23 @@ const PORT = 8080;
 app.use("/api", require('./routes'));
 
 app.use(express.static(__dirname + '/client/build'));
+
+app.get('/git/data', (req, res) => {
+    console.log("Gitting data.");
+    const git_info = {
+        method: 'GET',
+        headers: {
+          'Authorization': 'token ' + process.env.GITTOKEN
+        },
+        url: "https://api.github.com/user/repos?sort=created",
+      };
+      axios(git_info)
+        .then(res => {
+            console.log(res);
+            res.json(res);
+        })
+        .catch(err => console.log(err));
+});
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
