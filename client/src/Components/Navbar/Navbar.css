@@ -1,0 +1,29 @@
+.Navbar {
+    width: 100vw;
+    text-align: center;
+}
+
+.Navbar-Title {
+    font-size: 10vw;
+    text-align: center;
+    margin: 2.5%;
+    font-size: 10vw;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.Navbar-Links {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-around;
+
+    margin: 0 auto;
+}
+
+.Navbar-Links * {
+    flex-grow: 1;
+    border-radius: 0;
+    box-shadow: 0;
+    color: black;
+}
+

@@ -82,9 +82,7 @@ class BlogEdit extends Component {
   render() {
     return (
       <div className="BlogWriter">
-        <h1 className="app-page-title">
-          Edit
-        </h1>
+        <h2 className="PageTitle">Edit</h2>
         <br />
         <br />
         <form>

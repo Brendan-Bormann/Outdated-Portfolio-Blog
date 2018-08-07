@@ -10,7 +10,7 @@
     flex-direction: row;
     align-items: flex-start;
 
-    width: 95vw;
+    width: 100%;
     height: 100%;
 
     word-wrap: normal;
@@ -79,5 +79,5 @@
 .BlogLI-date {
     font-size: 100%;
     font-style: italic;
-    margin: 0 auto;
+    margin: 0;
 }

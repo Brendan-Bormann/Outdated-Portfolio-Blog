@@ -48,9 +48,10 @@ class BlogPage extends Component {
   render() {
     return (
       <div className="BlogPage">
-        <h1 className="BlogPage-Title">
+        <h2 className="PageTitle">
             {this.state.blog.title}
-        </h1>
+        </h2>
+        <hr />
         <p className="BlogPage-Date">
             {this.state.blog.date}
         </p>
@@ -60,7 +61,11 @@ class BlogPage extends Component {
         <p className="flow-text">{this.state.blog.content}</p>
         <br />
         <br />
-        <Link to={"/blog-edit/" + this.props.match.params.id} id="BlogPage-Edit" className="btn-floating btn-large waves-effect waves-light blue">Edit</Link>
+        <Link to={"/blog-edit/" + this.props.match.params.id} id="BlogPage-Edit" className="btn-floating btn-large waves-effect waves-light blue">
+          <i class="material-icons">
+            create
+          </i>
+        </Link>
       </div>
     );
   }

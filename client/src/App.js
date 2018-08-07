@@ -24,10 +24,19 @@ import RepoList from './Components/Portfolio/RepoList/RepoList';
 // 404 page //
 import NoMatch from './Components/NoMatch/NoMatch';
 
+// navbar //
+import Navbar from './Components/Navbar/Navbar';
+
 class App extends Component {
 
   state = {
-    currentPage: "/"
+    currentPage: "Hello"
+  }
+
+  changePage = async (page) => {
+    console.log(this.state.currentPage);
+    await this.setState({ 'currentPage': page });
+    console.log(this.state.currentPage);
   }
 
   render() {
@@ -35,15 +44,7 @@ class App extends Component {
       <div className="App">
       <Router>
         <div>
-          <div className="App-Header">
-            <div className="nav-links">
-              <Link className="waves-effect waves-light btn white nav-links" to={"/"}>Home</Link>
-              <Link className="waves-effect waves-light btn white nav-links" to={"/portfolio"}>Portfolio</Link>
-              <Link className="waves-effect waves-light btn white nav-links" to={"/github"}>My Work</Link>
-              <Link className="waves-effect waves-light btn white nav-links" to={"/blog-list"}>Blogs</Link>
-            </div>
-            <hr />
-          </div>
+          <Navbar page={this.state.currentPage} />
           <Switch>
             <Route path="/blog-write" component={BlogWriter} />
             <Route path="/blog-edit/:id" component={BlogEdit} />

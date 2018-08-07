@@ -23,14 +23,24 @@ class RepoLI extends Component {
   render() {
 
     return (
-      <div className="RepoLI" onClick={() => window.location.href = this.props.repo.svn_url}>
-        <h4>{this.formatName(this.props.repo.name)}</h4>
+      <div className="RepoLI">
+        <div className="RepoLI-Header">
+            <p className="RepoLI-Title">
+                {this.formatName(this.props.repo.name)}
+            </p>
+            <a className="waves-effect waves-light btn white" id="RepoLI-LinkBtn" onClick={() => window.location.href = this.props.repo.svn_url}>
+                <span class="RepoLI-Link-Text">View</span> 
+                <i class="material-icons RepoLI-Icon">
+                chevron_right
+                </i>
+            </a>
+        </div>
         <div className="RepoLI-Dates">
             <span className="RepoLI-Created">Created: {moment(this.props.repo.created_at, "YYYY-MM-DD").fromNow()}</span>
             <span className="RepoLI-Updated">Updated: {moment(this.props.repo.pushed_at, "YYYY-MM-DD").fromNow()}</span>
         </div>
         <hr />
-        <p>{this.props.repo.description}</p>
+        <p className="RepoLI-Summary">{this.props.repo.description}</p>
       </div>
     );
   }

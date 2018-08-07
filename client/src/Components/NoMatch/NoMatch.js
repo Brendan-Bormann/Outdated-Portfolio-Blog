@@ -9,7 +9,7 @@ class NoMatch extends Component {
   render() {
     return (
       <div className="NoMatch">
-        <h1 className="app-page-title">No Page Here</h1>
+        <h2 className="PageTitle">404 Error</h2>
         <hr />
         <p>Seems like you're lost!</p>
         <br />

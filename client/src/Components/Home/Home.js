@@ -11,7 +11,7 @@ class Home extends Component {
   render() {
     return (
       <div className="Home">
-        <h1 className="app-page-title">Brendan Bormann</h1>
+        <h2 className="PageTitle">Welcome</h2>
         <hr />
         <p>Welcome to my personal site!</p>
       </div>

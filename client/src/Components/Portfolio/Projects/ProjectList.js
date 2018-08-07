@@ -58,8 +58,7 @@ class ProjectList extends Component {
   render() {
     return (
       <div className="ProjectList">
-        <hr />
-        <h4>My Projects</h4>
+        <h2 className="PageTitle">My Projects</h2>
         <div className="ProjectList-Container">
           {this.displayProjects()}
         </div>

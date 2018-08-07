@@ -1,5 +1,9 @@
+.BlogList {
+    margin: 0 5%;
+}
+
 .BlogList-container {
-    margin: 2.5% auto;
+    /* margin: 0; */
 }
 
 #BlogList-Edit {

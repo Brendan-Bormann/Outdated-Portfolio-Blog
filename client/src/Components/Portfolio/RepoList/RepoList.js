@@ -35,7 +35,7 @@ class RepoList extends Component {
   render() {
     return (
       <div className="RepoList">
-        <h1 className="app-page-title">My GitHub Projects</h1>
+        <h2 className="PageTitle">My GitHub</h2>
         <hr />
         <div className="RepoList-Container">
             {this.loadRepos()}
