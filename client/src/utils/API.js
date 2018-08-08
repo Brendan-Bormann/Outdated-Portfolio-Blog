@@ -36,5 +36,11 @@ export default {
   },
   updateProject: function(id, projectData) {
     return axios.put(`/api/project/${id}`, projectData);
+  },
+
+  // github //
+
+  getGitUser: function() {
+    return axios.get("/api/get/me");
   }
 };

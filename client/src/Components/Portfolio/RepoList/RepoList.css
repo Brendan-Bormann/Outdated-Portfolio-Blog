@@ -8,3 +8,42 @@
     flex-direction: column;
     justify-content: space-evenly;
 }
+
+.Git-Profile {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.Git-Profile p {
+    margin: 0;
+    font-size: 3.5vw;
+}
+
+.Git-Profile-Image {
+    width: 40vw;
+    flex-shrink: 0;
+}
+
+.Git-Profile-Image img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.Git-Profile-Title {
+    margin: 1% 0;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 5.5vw;
+}
+
+.Git-Profile-Content {
+    margin: 0;
+    width: 48vw;
+}
+
+.Git-Profile-Bio {
+    width: 80vw;
+    font-size: 4vw;
+    text-align: center;
+}

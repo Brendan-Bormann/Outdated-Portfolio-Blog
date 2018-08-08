@@ -1,22 +1,17 @@
 import React, { Component } from 'react';
 
-import './Home.css';
+import './Footer.css';
 
-class Home extends Component {
+class Footer extends Component {
 
-  state = {
-    text: "hi"
-  }
-
-  
 
   render() {
     return (
-      <div className="Home">
+      <div className="Footer">
         <p>Welcome to my personal site!</p>
       </div>
     );
   }
 }
 
-export default Home;
+export default Footer;

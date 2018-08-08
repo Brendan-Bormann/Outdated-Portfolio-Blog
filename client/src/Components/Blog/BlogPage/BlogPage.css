@@ -5,8 +5,8 @@
 
 #BlogPage-Edit {
     position: fixed;
-    bottom: 5%;
-    right: 5%;
+    top: 89vh;
+    left: 80vw;
 }
 
 .BlogPage-Title {
@@ -16,7 +16,7 @@
 }
 
 .BlogPage-Date {
-    font-size: 5vw;
+    font-size: 3.5vw;
     text-align: center;
     font-style: italic;
 }

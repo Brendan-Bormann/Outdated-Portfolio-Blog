@@ -9,8 +9,6 @@ class NoMatch extends Component {
   render() {
     return (
       <div className="NoMatch">
-        <h2 className="PageTitle">404 Error</h2>
-        <hr />
         <p>Seems like you're lost!</p>
         <br />
         <Link to="/">Home</Link>

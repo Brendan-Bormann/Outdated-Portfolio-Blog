@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Switch } from "react-router-dom";
-// import axios from 'axios';
+
+import AppContainer from './App.RouteChange';
 
 import './App.css';
 
@@ -27,6 +28,9 @@ import NoMatch from './Components/NoMatch/NoMatch';
 // navbar //
 import Navbar from './Components/Navbar/Navbar';
 
+// Contact //
+import Contact from './Components/Contact/Contact';
+
 class App extends Component {
 
   state = {
@@ -34,9 +38,7 @@ class App extends Component {
   }
 
   changePage = async (page) => {
-    console.log(this.state.currentPage);
     await this.setState({ 'currentPage': page });
-    console.log(this.state.currentPage);
   }
 
   render() {
@@ -45,25 +47,22 @@ class App extends Component {
       <Router>
         <div>
           <Navbar page={this.state.currentPage} />
-          <Switch>
-            <Route path="/blog-write" component={BlogWriter} />
-            <Route path="/blog-edit/:id" component={BlogEdit} />
-            <Route path="/blog/:id" component={BlogPage} />
-            <Route path="/blog-list" component={BlogList} />
+          <AppContainer changePage={this.changePage}>
+            <Switch>
+              <Route path="/blog-write" component={BlogWriter} />
+              <Route path="/blog-edit/:id" component={BlogEdit} />
+              <Route path="/blog/:id" component={BlogPage} />
+              <Route path="/blog-list" component={BlogList} />
 
-            <Route path="/portfolio" component={Portfolio} />
-            <Route path="/github" component={RepoList} />
-            {/* <Link to="/contact">Contact</Link>
-            <Link to={`${props.match.url}/learn`} className="btn btn-default">Hello</Link>
+              <Route path="/portfolio" component={Portfolio} />
+              <Route path="/github" component={RepoList} />
+              <Route path="/contact" component={Contact} />
 
-            <nav>
-              <li className={window.location.pathname === "/" ? "active" : ""}>
-                <Link to="/">Home</Link>
-              </li>
-            </nav> */}
-            <Route exact path="/" component={Home} />
-            <Route path="*" component={NoMatch} />
-          </Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="*" component={NoMatch} />
+            </Switch>
+          </AppContainer>
+          <Footer />
         </div>
       </Router>
       </div>

@@ -29,12 +29,10 @@ class Blog extends Component {
   render() {
     return (
       <div className="BlogList">
-        <h2 className="PageTitle">My Blogs</h2>
-        <hr />
         <div className="BlogList-container">
           {this.state.blogs.map(blog => <BlogLI blog={blog} key={blog._id}/>)}
-          <Link to={"/blog-write"} id="BlogList-Edit" className="btn-floating btn-large waves-effect waves-light blue">
-            <i class="material-icons">
+          <Link to={"/blog-write"} id="BlogList-Edit" className="btn-floating btn-large waves-effect waves-light blue animated fadeInUp">
+            <i className="material-icons">
               add
             </i>
           </Link>

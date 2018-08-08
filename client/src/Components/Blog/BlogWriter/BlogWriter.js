@@ -16,12 +16,6 @@ class BlogWriter extends Component {
     });
   };
 
-  // title:   { type: String, required: true },
-  // content: { type: String, required: true },
-  // summary: { type: String, required: true },
-  // imgUrl:  { type: String, required: true },
-  // date:    { type: Date, default: Date.now }
-
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.title && this.state.content && this.state.summary && this.state.imageUrl) {
@@ -48,9 +42,6 @@ class BlogWriter extends Component {
   render() {
     return (
       <div className="BlogWriter">
-        <h2 className="PageTitle">Write a Blog</h2>
-        <br />
-        <br />
         <form>
               <label htmlFor="title-input">Article Title. Keep under ~25 characters. Currently: [{this.state.title.length}/25]</label>
               <input id="title-input"

@@ -82,8 +82,6 @@ class BlogEdit extends Component {
   render() {
     return (
       <div className="BlogWriter">
-        <h2 className="PageTitle">Edit</h2>
-        <br />
         <br />
         <form>
               <label htmlFor="title-input">Article Title. Currently: [{this.state.blog.title.length}/25]</label>

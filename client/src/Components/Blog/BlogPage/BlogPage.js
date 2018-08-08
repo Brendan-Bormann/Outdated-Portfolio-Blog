@@ -48,24 +48,26 @@ class BlogPage extends Component {
   render() {
     return (
       <div className="BlogPage">
-        <h2 className="PageTitle">
+        <h2 className="PageTitle animated fadeIn">
             {this.state.blog.title}
         </h2>
         <hr />
-        <p className="BlogPage-Date">
+        <p className="BlogPage-Date animated rotateIn">
             {this.state.blog.date}
         </p>
-          <img className="BlogPage-Image" alt="article" src={this.state.blog.imageUrl} />
-        <p className="flow-text">{this.state.blog.summary}</p>
+          <img className="BlogPage-Image animated fadeIn delay-1s" alt="article" src={this.state.blog.imageUrl} />
+        <p className="flow-text animated fadeInUp">{this.state.blog.summary}</p>
         <hr />
-        <p className="flow-text">{this.state.blog.content}</p>
+        <p className="flow-text animated fadeIn delay-2s">{this.state.blog.content}</p>
         <br />
         <br />
+        <div>
         <Link to={"/blog-edit/" + this.props.match.params.id} id="BlogPage-Edit" className="btn-floating btn-large waves-effect waves-light blue">
-          <i class="material-icons">
+          <i className="material-icons">
             create
           </i>
         </Link>
+        </div>
       </div>
     );
   }

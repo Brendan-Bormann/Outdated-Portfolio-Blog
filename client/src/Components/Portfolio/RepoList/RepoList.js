@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
+import moment from 'moment';
+import API from '../../../utils/API';
 import './RepoList.css';
 
 import axios from 'axios';
 import RepoLI from './RepoLI/RepoLI';
+
+import myPic from '../../../images/my-photo-cropped.jpg';
 
 class RepoList extends Component {
 
@@ -11,11 +15,28 @@ class RepoList extends Component {
           data: {
               body: []
           }
+      },
+      me: {
+          bio: 'An avid developer, coder, and deft programmer. Adept at critical thinking and a proficient problem solver.',
+          followers: 10,
+          following: 30,
+          public_repos: 35,
+          created_at: '',
+          login: 'Brendan-Bormann'
       }
   }
 
+  getMyGitProfile = () => {
+    API.getGitUser()
+    .then(response => {
+        console.log(response);
+        this.setState({ 'me': response.data.body });
+    })
+    .catch(error => console.log(error));
+  }
+
   componentDidMount() {
-    // this.getGit();
+    this.getMyGitProfile();
     axios.get("/api/get/git/repos")
       .then(response => {
           if (response) this.setState({ "repos": response });
@@ -35,7 +56,23 @@ class RepoList extends Component {
   render() {
     return (
       <div className="RepoList">
-        <h2 className="PageTitle">My GitHub</h2>
+        <div className="Git-Profile animated fadeInLeft">
+            <div className="Git-Profile-Image">
+                <img className="Git-Profile-Pic" src={myPic} alt="my-pic" />
+            </div>
+            <div className="Git-Profile-Content">
+                <h3 className="Git-Profile-Title">{this.state.me.login}</h3>
+                <p className="Git-Profile-Date">Created: {moment(this.state.me.created_at, "YYYY-MM-DD").fromNow()}.</p>      
+                <p className="Git-Profile-Follows">Followers: {this.state.me.followers}</p>
+                <p className="Git-Profile-Follows">Following: {this.state.me.following}</p>
+                <p className="Git-Profile-RepoTotal">Total Repos: {this.state.me.public_repos}</p>
+            </div>
+        </div>
+        <div className="Git-Profile-Bio animated fadeInLeft">
+            <span className="Git-Profile-Bio">{this.state.me.bio}</span>
+        </div>
+        <br />
+        <h2 className="PageTitle animated fadeInRight">My Repos</h2>
         <hr />
         <div className="RepoList-Container">
             {this.loadRepos()}

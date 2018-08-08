@@ -23,21 +23,32 @@ class RepoLI extends Component {
   render() {
 
     return (
-      <div className="RepoLI">
+      <div className="RepoLI animated fadeInUp">
         <div className="RepoLI-Header">
             <p className="RepoLI-Title">
                 {this.formatName(this.props.repo.name)}
             </p>
-            <a className="waves-effect waves-light btn white" id="RepoLI-LinkBtn" onClick={() => window.location.href = this.props.repo.svn_url}>
-                <span class="RepoLI-Link-Text">View</span> 
-                <i class="material-icons RepoLI-Icon">
+            <a className="waves-effect waves-light btn white btn-flat" id="RepoLI-LinkBtn" onClick={() => window.location.href = this.props.repo.svn_url}>
+                <span className="RepoLI-Link-Text">View</span> 
+                <i className="material-icons RepoLI-Icon">
                 chevron_right
                 </i>
             </a>
         </div>
+        <hr />
         <div className="RepoLI-Dates">
-            <span className="RepoLI-Created">Created: {moment(this.props.repo.created_at, "YYYY-MM-DD").fromNow()}</span>
-            <span className="RepoLI-Updated">Updated: {moment(this.props.repo.pushed_at, "YYYY-MM-DD").fromNow()}</span>
+            <span className="RepoLI-Created">
+                <i className="material-icons RepoLI-Dates-Icons">
+                    add_circle_outline
+                </i>
+                <span className="RepoLI-Time">{moment(this.props.repo.created_at, "YYYY-MM-DD").fromNow()}</span>
+            </span>
+            <span className="RepoLI-Updated">
+                <span className="RepoLI-Time">{moment(this.props.repo.pushed_at, "YYYY-MM-DD").fromNow()}</span>
+                <i className="material-icons RepoLI-Dates-Icons">
+                    update
+                </i>
+            </span>
         </div>
         <hr />
         <p className="RepoLI-Summary">{this.props.repo.description}</p>

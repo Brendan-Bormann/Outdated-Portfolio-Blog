@@ -8,6 +8,6 @@
 
 #BlogList-Edit {
     position: fixed;
-    bottom: 5%;
-    right: 5%;
+    top: 89vh;
+    left: 80vw;
 }

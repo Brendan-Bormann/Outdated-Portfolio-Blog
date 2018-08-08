@@ -1,9 +1,6 @@
 .BlogLI {
     margin: 2.5% auto;
-    border: solid 5px rgba(70, 70, 70, 0.25);
-    border-radius: 10pt;
     overflow: hidden;
-    white-space: nowrap;
     position: relative;
 
     display: flex;
@@ -59,9 +56,9 @@
   position: relative;
   overflow: hidden;
   display: inline-block;
+  border-radius: 2px;
 
   flex-shrink: 0;
-  border-right: 3px solid rgba(70, 70, 70, 0.25);
 }
 
 .BlogLI-Thumbnail img {

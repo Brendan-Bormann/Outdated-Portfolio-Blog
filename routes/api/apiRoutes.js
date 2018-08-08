@@ -29,10 +29,10 @@ router.get('/git/repos', (req, res) => {
 
 });
 
-router.get('/git/me', (req, res) => {
+router.get('/me', (req, res) => {
     console.log("Getting git data.");
     var options = {
-        url: "https://api.github.com/user/repos?sort=created",
+        url: "https://api.github.com/user",
         headers: {
             'Authorization': process.env.GITTOKEN,
             'User-Agent': 'request'

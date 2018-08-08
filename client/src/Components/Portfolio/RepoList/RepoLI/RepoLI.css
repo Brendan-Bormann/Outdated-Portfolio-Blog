@@ -1,9 +1,10 @@
 .RepoLI {
     margin: 1%;
-    margin-bottom: 5%;
+    margin-bottom: 7.5%;
 }
 
 .RepoLI-Dates {
+    margin: 3% 0;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -11,9 +12,23 @@
     font-size: 3vw;
 }
 
-.RepoLI-Header {
-    margin: 1% auto;
+.RepoLI-Created, .RepoLI-Updated {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
+.RepoLI-Time {
+    margin: 0 5px;
+}
+
+.RepoLI-Dates-Icons {
+    font-size: 2.75vh;
+    display: inline-block;
+}
+
+.RepoLI-Header {
+    margin: 0;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -31,6 +46,7 @@
 }
 
 #RepoLI-LinkBtn {
+    font-size: 3.5vw;
     color: black;
     display: inline-flex;
     align-items: center;

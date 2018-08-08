@@ -14,16 +14,19 @@
 .Navbar-Links {
     display: flex;
     flex-direction: row;
-    align-items: baseline;
-    justify-content: space-around;
-
-    margin: 0 auto;
+    align-items: center;
 }
 
 .Navbar-Links * {
-    flex-grow: 1;
+    flex-shrink: 1;
     border-radius: 0;
     box-shadow: 0;
     color: black;
+    font-size: 3vw;
+    margin: 0 auto;
+}
+
+.Navbar-PageTitle {
+    margin: 0 5vw;
 }
 
