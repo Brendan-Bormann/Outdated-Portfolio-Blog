@@ -28,13 +28,21 @@ import NoMatch from './Components/NoMatch/NoMatch';
 // navbar //
 import Navbar from './Components/Navbar/Navbar';
 
+// Footer //
+import Footer from './Components/Footer/Footer';
+
 // Contact //
 import Contact from './Components/Contact/Contact';
 
 class App extends Component {
 
   state = {
-    currentPage: "Hello"
+    currentPage: "Hello",
+    admin: false,
+  }
+
+  setAdmin = bool => {
+    this.setState({ 'admin' : bool });
   }
 
   changePage = async (page) => {
@@ -46,7 +54,7 @@ class App extends Component {
       <div className="App">
       <Router>
         <div>
-          <Navbar page={this.state.currentPage} />
+          <Navbar setAdmin={this.setAdmin} page={this.state.currentPage} />
           <AppContainer changePage={this.changePage}>
             <Switch>
               <Route path="/blog-write" component={BlogWriter} />
@@ -62,7 +70,7 @@ class App extends Component {
               <Route path="*" component={NoMatch} />
             </Switch>
           </AppContainer>
-          <Footer />
+          <Footer setAdmin={this.setAdmin} />
         </div>
       </Router>
       </div>

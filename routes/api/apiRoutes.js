@@ -30,7 +30,6 @@ router.get('/git/repos', (req, res) => {
 });
 
 router.get('/me', (req, res) => {
-    console.log("Getting git data.");
     var options = {
         url: "https://api.github.com/user",
         headers: {
@@ -49,4 +48,16 @@ router.get('/me', (req, res) => {
 
 });
 
-module.exports = router
+router.post('/login', (req, res) => {
+    
+    if (req.body.user === process.env.ADMIN_USER && req.body.pass === process.env.ADMIN_PASS)
+    {
+        res.send({ 'login' : 'Successful' });
+    }
+    else
+    {
+        res.send({ 'login' : 'Failed' });
+    }
+});
+
+module.exports = router;

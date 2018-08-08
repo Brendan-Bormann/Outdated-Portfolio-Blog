@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import API from '../../utils/API';
 import './Navbar.css';
 
 
@@ -8,7 +9,47 @@ class Navbar extends Component {
   state = {
       animationClass: "animated fadeInRight",
       currentPage: 'Welcome',
-      propPage: 'h'
+      propPage: 'h',
+      keys: ''
+  }
+
+  storeKeys = event => {
+    var keys = this.state.keys
+    keys += event.key;
+
+    if (keys === 'pooks') {
+        this.login();
+    }
+
+    this.setState({ 'keys' : keys });
+  }
+
+  login = async () => {
+    alert("Admin Log-In.");
+
+    var user = prompt("Username");
+    var pass = prompt("Password");
+
+    await this.setState({
+        'user': user,
+        'pass': pass
+    });
+
+    API.login(this.state)
+    .then(res=> {
+        if (res.data.login === 'Successful') {
+            this.props.setAdmin(true);
+            alert('Hello Admin.');
+        } else {
+            alert('Invalid Log-In.');
+        }
+    })
+    .catch(err => console.log(err));
+}
+
+  componentWillMount() {
+      this.setState({ 'admin' : this.props.admin });
+      console.log('Admin @ navbar.');
   }
 
   changePage = async page => {
@@ -77,13 +118,13 @@ class Navbar extends Component {
 
   render() {
     return (
-      <div className="Navbar">
-        <Link className="clear-style" to="/"><h1 className="Navbar-Title">Brendan Bormann</h1></Link>
+      <div className="Navbar" onKeyDown={this.storeKeys}>
+        <Link className="clear-style" to="/"><h1 className="Navbar-Title">Brendan Bormann {this.state.admin}</h1></Link>
         <div className="Navbar-Links">
             <Link className="waves-effect waves-light btn btn-flat white nav-links" to={"/"} >Home</Link>
             <Link className="waves-effect waves-light btn btn-flat white nav-links" to={"/portfolio"} >Portfolio</Link>
             <Link className="waves-effect waves-light btn btn-flat white nav-links" to={"/github"} >GitHub</Link>
-            <Link className="waves-effect waves-light btn btn-flat white nav-links" to={"/blog-list"} >Blogs</Link>
+            <Link className="waves-effect waves-light btn btn-flat white nav-links" to={"/blog-list"} state={this.state} >Blogs</Link>
             <Link className="waves-effect waves-light btn btn-flat white nav-links" to={"/contact"} >Contact</Link>
         </div>
         <hr />

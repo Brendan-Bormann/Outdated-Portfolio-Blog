@@ -42,5 +42,16 @@ export default {
 
   getGitUser: function() {
     return axios.get("/api/get/me");
+  },
+
+  login: function(data) {
+    return axios({
+              method: 'POST',
+              url: '/api/get/login',
+              headers: {
+                'Content-type': 'application/json'
+              },
+              data: JSON.stringify(data)
+          });
   }
 };
