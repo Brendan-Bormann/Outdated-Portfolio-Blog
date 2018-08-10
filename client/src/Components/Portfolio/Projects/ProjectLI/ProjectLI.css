@@ -30,9 +30,15 @@
     top: 50%;
     height: 100%;
     width: auto;
+
     -webkit-transform: translate(-50%,-50%);
         -ms-transform: translate(-50%,-50%);
             transform: translate(-50%,-50%);
+}
+
+.project-pic {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
 }
   
 .ProjectLI-Info {
@@ -53,5 +59,6 @@
 }
 
 .ProjectLI-Summary {
+    font-size: 3.5vw;
     margin: 0;
 }

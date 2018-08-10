@@ -46,7 +46,7 @@ class ProjectList extends Component {
   postProject = () => {
     API.saveProject({
       title:    "Hacker News",
-      link:     "https://news.ycombinator.com/",
+      link:     "https://brendan-bormann.github.io/TriviaGame/",
       summary:  "A forum to promote news articles in the tech community.",
       imageUrl: "https://is1-ssl.mzstatic.com/image/thumb/Purple128/v4/61/e7/6d/61e76d36-7b44-7173-2540-412605060935/AppIcon-1x_U007emarketing-85-220-0-6.png/246x0w.jpg"
     })

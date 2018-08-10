@@ -26,3 +26,11 @@
     width: 90vw;
     margin: 0 auto;
 }
+
+.hidden {
+    display: none;
+}
+
+.unhidden {
+    display: initial;
+}

@@ -10,6 +10,10 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
 }
+
+p {
+    font-size: 4.3vw;
+}
   
 .App {
     margin: 0;

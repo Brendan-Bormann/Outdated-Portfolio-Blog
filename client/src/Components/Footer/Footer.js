@@ -8,8 +8,7 @@ class Footer extends Component {
   render() {
     return (
       <div className="Footer">
-        <hr />
-        <p>Brendan Bormann {moment().format('YYYY')}</p>
+        <span>Brendan Bormann {moment().format('YYYY')}</span>
       </div>
     );
   }

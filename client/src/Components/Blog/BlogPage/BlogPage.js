@@ -15,7 +15,8 @@ class BlogPage extends Component {
           imageUrl: placeholderImg,
           summary: "Blog summary...",
           title: "Title"
-      }
+      },
+      btnClass: 'hidden'
   }
 
   date = async () => {
@@ -38,6 +39,7 @@ class BlogPage extends Component {
       } else {
           window.location.assign("/");
       }
+      this.getAdmin();
   }
 
   setBlogData = (data) => {
@@ -48,18 +50,8 @@ class BlogPage extends Component {
   getAdmin = () => {
     API.isAdmin()
       .then(res => {
-        return res.data;
+        if (res.data) this.setState({ 'btnClass' : 'unhidden' });
       });
-  }
-
-  AddNewBtn = () => {
-    return(
-      <Link to={"/blog-edit/" + this.props.match.params.id} id="BlogPage-Edit" className="btn-floating btn-large waves-effect waves-light blue">
-          <i className="material-icons">
-            create
-          </i>
-        </Link>
-    );
   }
 
   render() {
@@ -79,7 +71,11 @@ class BlogPage extends Component {
         <br />
         <br />
         <div>
-        {this.getAdmin() ? <this.AddNewBtn /> : <span></span>}
+          <Link to={"/blog-edit/" + this.props.match.params.id} id="BlogPage-Edit" className={"btn-floating btn-large waves-effect waves-light blue " + this.state.btnClass}>
+            <i className="material-icons">
+              create
+            </i>
+          </Link>
         </div>
       </div>
     );

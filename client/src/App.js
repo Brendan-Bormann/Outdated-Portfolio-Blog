@@ -60,7 +60,7 @@ class App extends Component {
     return (
       <div className="App">
       <Router>
-        <div>
+        <div className="App-Router-Container">
           <Navbar admin={this.state.admin} setAdmin={this.setAdmin} page={this.state.currentPage} />
           <AppContainer changePage={this.changePage}>
             <Switch>

@@ -9,7 +9,7 @@ class Portfolio extends Component {
 
   render() {
     return (
-      <div className="Portfolio">
+      <div className="Portfolio animated fadeIn">
         <p>Welcome to my Portfolio!</p>
         <br />
         <p>

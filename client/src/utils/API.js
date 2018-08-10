@@ -57,5 +57,16 @@ export default {
 
   isAdmin: function() {
     return axios.get('/api/get/admin');
-  }
+  },
+
+  sendMail: function(data) {
+    return axios({
+              method: 'POST',
+              url: '/api/get/mailer',
+              headers: {
+                'Content-type': 'application/json'
+              },
+              data: JSON.stringify(data)
+          });
+  },
 };

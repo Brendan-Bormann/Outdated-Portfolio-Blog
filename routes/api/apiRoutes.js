@@ -2,15 +2,7 @@ const express = require('express');
 const router  = express.Router();
 const request = require("request");
 
-
-router.get('/data', function(req, res) {
-    res.send({ "info" : "Express was here 😮" });
-});
-
-router.get('/data2', function(req, res) {
-    res.send({ "info" : "Express was here 2 😮" });
-});
-
+// get all my github repos
 router.get('/git/repos', (req, res) => {
     var options = {
         url: "https://api.github.com/user/repos?sort=created",
@@ -30,6 +22,8 @@ router.get('/git/repos', (req, res) => {
 
 });
 
+
+// get my github profile data
 router.get('/me', (req, res) => {
     var options = {
         url: "https://api.github.com/user",
@@ -49,6 +43,7 @@ router.get('/me', (req, res) => {
 
 });
 
+// admin login
 router.post('/login', async (req, res) => {
     if (req.body.user === process.env.ADMIN_USER && req.body.pass === process.env.ADMIN_PASS)
     {
@@ -62,9 +57,8 @@ router.post('/login', async (req, res) => {
     }
 });
 
-
+// check if admin
 router.get('/admin', (req, res) => {
-
     if (req.session.admin) {
         res.send(true);
     } else {
@@ -72,13 +66,35 @@ router.get('/admin', (req, res) => {
     }
 });
 
-router.get('/admin/test', (req, res) => {
-    req.session.admin = true;
-    res.send("admin test login");
-});
+// Nodemailer begin //
+const nodemailer = require('nodemailer');
+var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'brendan.bormann2@gmail.com',
+      pass: process.env.EMAIL
+    }
+  });
+// --------------- //
 
-router.get('/admin/test1', (req, res) => {
-    res.send(req.session.id + " ||| " + req.session.admin);
+// TODO: set up nodemailer route
+router.post('/mailer', (req, res) => {
+    var mailOptions = {
+        from: 'brendan.bormann@gmail.com',
+        to: 'brendan.bormann@gmail.com',
+        subject: 'An email from your website.',
+        person: req.body.name,
+        message: req.body.message
+      };
+
+    transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+          res.send(error);
+        } else {
+          res.send('Email sent: ' + info.response);
+        }
+      });
+
 });
 
 module.exports = router;
