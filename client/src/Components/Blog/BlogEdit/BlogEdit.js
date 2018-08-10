@@ -40,43 +40,49 @@ class BlogEdit extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.blog.title && this.state.blog.content && this.state.blog.summary && this.state.blog.imageUrl) {
-      if (this.state.blog.summary.length < 150) {
-        API.updateBlog(this.state.blog._id, {
-          title: this.state.blog.title,
-          content: this.state.blog.content,
-          summary: this.state.blog.summary,
-          imageUrl: this.state.blog.imageUrl
-        })
-          .then(res => {
-            alert("Updated blog.");
-            window.location.assign("/blog/" + this.state.blog._id);
+
+    if (this.props.admin) {
+      if (this.state.blog.title && this.state.blog.content && this.state.blog.summary && this.state.blog.imageUrl) {
+        if (this.state.blog.summary.length < 150) {
+          API.updateBlog(this.state.blog._id, {
+            title: this.state.blog.title,
+            content: this.state.blog.content,
+            summary: this.state.blog.summary,
+            imageUrl: this.state.blog.imageUrl
           })
-          .catch(err => console.log(err));
+            .then(res => {
+              alert("Updated blog.");
+              window.location.assign("/blog/" + this.state.blog._id);
+            })
+            .catch(err => console.log(err));
+        } else {
+          alert(`Summary is ${this.state.blog.summary.length - 150} characters over limit.`);
+        }
       } else {
-        alert(`Summary is ${this.state.blog.summary.length - 150} characters over limit.`);
+        alert("Please fill out all areas.");
       }
     } else {
-      alert("Please fill out all areas.");
+      alert('Only the Admin can edit blogs.');
     }
   };
 
   deleteBlog = event => {
     event.preventDefault();
-    if (window.confirm("Are you sure you want to delete this blog?")) {
-      API.deleteBlog(this.state.blog._id)
-      .then(response => {
-        alert("Blog is now gone.");
-        window.location.assign("/blog-list");
-      })
-      .catch(error => alert(error));
-      
-    }
-    else alert("Blog has not been deleted.");
-  }
 
-  onStateChange() {
-    console.log("state changed.");
+    if (this.props.admin) {
+      if (window.confirm("Are you sure you want to delete this blog?")) {
+        API.deleteBlog(this.state.blog._id)
+        .then(response => {
+          alert("Blog is now gone.");
+          window.location.assign("/blog-list");
+        })
+        .catch(error => alert(error));
+        
+      }
+      else alert("Blog has not been deleted.");
+    } else {
+      alert('Only the Admin can delete blogs.');
+    }
   }
 
   render() {

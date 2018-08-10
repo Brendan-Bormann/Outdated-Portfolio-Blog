@@ -26,16 +26,29 @@ class Blog extends Component {
       });
   };
 
+  getAdmin = () => {
+    API.isAdmin()
+      .then(res => {
+        return res.data;
+      });
+  }
+
+  AddNewBtn = () => {
+    return(
+      <Link to={"/blog-write"} id="BlogList-Edit" className="btn-floating btn-large waves-effect waves-light blue animated fadeInUp">
+        <i className="material-icons">
+          add
+        </i>
+      </Link>
+    );
+  }
+
   render() {
     return (
       <div className="BlogList">
         <div className="BlogList-container">
           {this.state.blogs.map(blog => <BlogLI blog={blog} key={blog._id}/>)}
-          <Link to={"/blog-write"} id="BlogList-Edit" className="btn-floating btn-large waves-effect waves-light blue animated fadeInUp">
-            <i className="material-icons">
-              add
-            </i>
-          </Link>
+          {this.getAdmin() ? <this.AddNewBtn /> : <span></span>}
         </div>
       </div>
     );

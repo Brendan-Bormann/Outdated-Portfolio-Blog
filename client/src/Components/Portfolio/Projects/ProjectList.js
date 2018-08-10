@@ -19,6 +19,7 @@ class ProjectList extends Component {
   }
 
   componentDidMount() {
+    // Post a Project
     // this.postProject();
     this.loadProjects();
   }
@@ -58,7 +59,7 @@ class ProjectList extends Component {
   render() {
     return (
       <div className="ProjectList">
-        <h2 className="PageTitle animated fadeInRight">My Projects</h2>
+        <h2 className="PageTitle animated fadeInRight">Showcase</h2>
         <hr />
         <div className="ProjectList-Container">
           {this.displayProjects()}

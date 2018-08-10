@@ -7,9 +7,10 @@ import './Navbar.css';
 class Navbar extends Component {
 
   state = {
-      animationClass: "animated fadeInRight",
+      animationClass: "animated fadeIn",
       currentPage: 'Welcome',
-      propPage: 'h',
+      title: 'Brendan Bormann',
+      propPage: '',
       keys: ''
   }
 
@@ -17,7 +18,9 @@ class Navbar extends Component {
     var keys = this.state.keys
     keys += event.key;
 
-    if (keys === 'pooks') {
+    keys = keys.slice(-5);
+
+    if (keys === 'login') {
         this.login();
     }
 
@@ -38,18 +41,21 @@ class Navbar extends Component {
     API.login(this.state)
     .then(res=> {
         if (res.data.login === 'Successful') {
-            this.props.setAdmin(true);
             alert('Hello Admin.');
         } else {
             alert('Invalid Log-In.');
         }
     })
     .catch(err => console.log(err));
+
+    this.props.setAdmin();
 }
 
-  componentWillMount() {
-      this.setState({ 'admin' : this.props.admin });
-      console.log('Admin @ navbar.');
+  componentWillReceiveProps() {
+      if (this.props.admin === true)
+      {
+          this.setState({ 'title' : 'Admin' });
+      }
   }
 
   changePage = async page => {
@@ -68,14 +74,6 @@ class Navbar extends Component {
     }, 250);
 
   }
-
-//   myCurrentPage = async () => {
-//     var myPage = this.pageFinder(this.props.page);
-
-//     await this.changePage(myPage);
-
-//     return this.state.currentPage;
-//   }
 
   pageFinder = page => {
     var pageAdjusted;
@@ -119,12 +117,12 @@ class Navbar extends Component {
   render() {
     return (
       <div className="Navbar" onKeyDown={this.storeKeys}>
-        <Link className="clear-style" to="/"><h1 className="Navbar-Title">Brendan Bormann {this.state.admin}</h1></Link>
+        <Link className="clear-style" to="/"><h1 className="Navbar-Title">{this.state.title}</h1></Link>
         <div className="Navbar-Links">
             <Link className="waves-effect waves-light btn btn-flat white nav-links" to={"/"} >Home</Link>
             <Link className="waves-effect waves-light btn btn-flat white nav-links" to={"/portfolio"} >Portfolio</Link>
             <Link className="waves-effect waves-light btn btn-flat white nav-links" to={"/github"} >GitHub</Link>
-            <Link className="waves-effect waves-light btn btn-flat white nav-links" to={"/blog-list"} state={this.state} >Blogs</Link>
+            <Link className="waves-effect waves-light btn btn-flat white nav-links" to={"/blog-list"} state={this.state.title} >Blogs</Link>
             <Link className="waves-effect waves-light btn btn-flat white nav-links" to={"/contact"} >Contact</Link>
         </div>
         <hr />

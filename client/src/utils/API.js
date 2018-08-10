@@ -53,5 +53,9 @@ export default {
               },
               data: JSON.stringify(data)
           });
+  },
+
+  isAdmin: function() {
+    return axios.get('/api/get/admin');
   }
 };

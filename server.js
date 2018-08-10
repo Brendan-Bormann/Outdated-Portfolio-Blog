@@ -1,8 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const session = require('express-session');
 const path = require("path");
-const axios = require("axios");
-const request = require("request");
+
 const app = express();
 
 // env vars //
@@ -21,13 +21,21 @@ db.once('open', function() {
     console.log(`Connected to MongoDB.`);
 });
 
-const PORT = 8080;
+const PORT = 8080 || process.env.PORT;
+
+
+app.use(session({
+    secret: 'keyboard cat',
+    resave: true,
+    saveUninitialized: true
+  }));
 
 app.use("/api", require('./routes'));
 
 app.use(express.static(__dirname + '/client/build'));
 
 app.get('*', (req, res) => {
+    req.session.admin = false;
     res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
 

@@ -45,6 +45,23 @@ class BlogPage extends Component {
     this.date();
   }
 
+  getAdmin = () => {
+    API.isAdmin()
+      .then(res => {
+        return res.data;
+      });
+  }
+
+  AddNewBtn = () => {
+    return(
+      <Link to={"/blog-edit/" + this.props.match.params.id} id="BlogPage-Edit" className="btn-floating btn-large waves-effect waves-light blue">
+          <i className="material-icons">
+            create
+          </i>
+        </Link>
+    );
+  }
+
   render() {
     return (
       <div className="BlogPage">
@@ -62,11 +79,7 @@ class BlogPage extends Component {
         <br />
         <br />
         <div>
-        <Link to={"/blog-edit/" + this.props.match.params.id} id="BlogPage-Edit" className="btn-floating btn-large waves-effect waves-light blue">
-          <i className="material-icons">
-            create
-          </i>
-        </Link>
+        {this.getAdmin() ? <this.AddNewBtn /> : <span></span>}
         </div>
       </div>
     );

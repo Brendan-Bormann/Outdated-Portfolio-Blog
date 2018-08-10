@@ -7,6 +7,9 @@ import AppContainer from './App.RouteChange';
 
 import './App.css';
 
+import ProtectedRoute from './ProtectedRoute.js';
+import API from './utils/API';
+
 // Landing Page //
 import Home from './Components/Home/Home';
 
@@ -41,26 +44,31 @@ class App extends Component {
     admin: false,
   }
 
-  setAdmin = bool => {
-    this.setState({ 'admin' : bool });
-  }
-
   changePage = async (page) => {
     await this.setState({ 'currentPage': page });
   }
+
+  setAdmin = () => {
+    API.isAdmin()
+      .then(res => {
+        this.setState({ "admin" : res.data });
+      });
+  }
+
 
   render() {
     return (
       <div className="App">
       <Router>
         <div>
-          <Navbar setAdmin={this.setAdmin} page={this.state.currentPage} />
+          <Navbar admin={this.state.admin} setAdmin={this.setAdmin} page={this.state.currentPage} />
           <AppContainer changePage={this.changePage}>
             <Switch>
-              <Route path="/blog-write" component={BlogWriter} />
-              <Route path="/blog-edit/:id" component={BlogEdit} />
-              <Route path="/blog/:id" component={BlogPage} />
-              <Route path="/blog-list" component={BlogList} />
+              <ProtectedRoute path="/blog-write" component={BlogWriter} admin={this.state.admin} />
+              <ProtectedRoute path="/blog-edit/:id" component={BlogEdit} admin={this.state.admin} />
+
+              <Route path="/blog/:id" component={BlogPage} admin={this.state.admin} />
+              <Route path="/blog-list" component={BlogList} admin={this.state.admin} />
 
               <Route path="/portfolio" component={Portfolio} />
               <Route path="/github" component={RepoList} />
