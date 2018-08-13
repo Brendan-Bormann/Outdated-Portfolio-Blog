@@ -29,7 +29,6 @@ class RepoList extends Component {
   getMyGitProfile = () => {
     API.getGitUser()
     .then(response => {
-        console.log(response);
         this.setState({ 'me': response.data.body });
     })
     .catch(error => console.log(error));
@@ -49,6 +48,7 @@ class RepoList extends Component {
 
   loadRepos = () => {
       return this.state.repos.data.body.map(repo => {
+          
           return <RepoLI repo={repo} key={repo.id}/>;
       });
   }
@@ -56,7 +56,7 @@ class RepoList extends Component {
   render() {
     return (
       <div className="RepoList">
-        <div className="Git-Profile animated fadeInLeft">
+        <div className="Git-Profile animated fadeIn">
             <div className="Git-Profile-Image">
                 <img className="Git-Profile-Pic" src={myPic} alt="my-pic" />
             </div>
@@ -77,6 +77,10 @@ class RepoList extends Component {
         <div className="RepoList-Container">
             {this.loadRepos()}
         </div>
+        <hr />
+        <h4 onClick={() => window.scrollTo(0,0)} className="Home-Topic animated fadeInLeft">Back to Top</h4>
+        <br />
+        <br />
         <br />
       </div>
     );

@@ -8,6 +8,7 @@ class Contact extends Component {
 
   state = {
     name: 'Bob',
+    email: 'sup@123.com',
     message: "Hi"
   }
 
@@ -18,7 +19,7 @@ class Contact extends Component {
         'message': message
     });
 
-    API.sendMail(this.state)
+    API.sendMail({ 'name': this.state.name, 'email': this.state.email, 'message': this.state.message })
     .then(res=> {
         alert(res.status);
     })
@@ -31,13 +32,27 @@ class Contact extends Component {
     return (
       <div className="Contact animated fadeIn">
         <p onClick={() => this.sendMail('Jimmy', 'What up pooks?')}>Contact Me!</p>
-        <p>
-          Assumenda doloremque doloremque et in et. Qui necessitatibus ut voluptas est repudiandae dolorem temporibus esse corporis. Quia dignissimos ullam quibusdam officiis laborum similique tempore consequatur et. Non amet rerum. Ut eveniet omnis officiis illum at.
- 
-          Quae saepe voluptatem provident ut in nemo aliquam nostrum. Iste pariatur vel facilis ex eum. Consequuntur ex exercitationem voluptatum omnis qui. Eum non nemo quisquam provident. Vel praesentium expedita molestiae rerum eos nobis ea dolorum nostrum.
-          
-          Voluptates sit labore. Eveniet fugit porro. Fugit est sunt. Perspiciatis voluptates aut qui tempore veniam officiis sit sint dicta. Maxime quibusdam assumenda id amet accusamus omnis inventore numquam iusto. Aliquid et quaerat et perspiciatis blanditiis nam aut suscipit accusantium.
-        </p>
+        <h4 className="Home-Topic animated fadeInLeft">Send Me a Message</h4>
+        <hr />
+        <div className="Contact-Row row">
+          <div class="input-field col s8">
+            <input id="name" placeholder="Your Name" type="text"/>
+          </div>
+        </div>
+        <div className="Contact-Row row">
+          <div class="input-field col s12">
+            <input id="email" placeholder="Your Email" type="email"/>
+          </div>
+        </div>
+        <div class="row">
+          <form class="col s12">
+            <div class="Contact-Row row">
+              <div class="input-field col s12">
+                <textarea id="textarea1" placeholder="Your Message" class="materialize-textarea"></textarea>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }

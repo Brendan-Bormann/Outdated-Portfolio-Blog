@@ -1,3 +1,55 @@
 .Portfolio {
     margin: 0 5%;
 }
+
+.Portfolio-Hidden {
+    display: none;
+}
+
+.Portfolio-Active {
+}
+
+.Portfolio-Btn {
+    color: black;
+}
+
+.Portfolio-Skills-Tabs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.Portfolio-Skills-Tabs * {
+    flex-shrink: 0;
+    font-size: 3vw;
+}
+
+.Portfolio-Skills-List {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.Skill-Box {
+    height: 25vh;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.Skill-Box ul {
+    margin: 0;
+}
+
+.Skill-Box li {
+    font-size: 3.8vw;
+}
+
+.Skills-P {
+    margin: 0;
+    display: inline-block;
+    width: 60%;
+    font-size: 4vw;
+}

@@ -51,7 +51,7 @@ class Blog extends Component {
       <div className="BlogList">
         <div className="BlogList-container">
           {this.state.blogs.map(blog => <BlogLI blog={blog} key={blog._id}/>)}
-          <Link to={"/blog-write"} id="BlogList-Edit" className={"btn-floating btn-large waves-effect waves-light blue animated fadeInUp " + this.state.btnClass }>
+          <Link to={"/blog-write"} id="BlogList-Edit" className={"btn-floating btn-large waves-effect waves-light pulse green animated fadeInUp " + this.state.btnClass }>
             <i className="material-icons">
               add
             </i>

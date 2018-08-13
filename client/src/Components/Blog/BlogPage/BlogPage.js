@@ -71,7 +71,7 @@ class BlogPage extends Component {
         <br />
         <br />
         <div>
-          <Link to={"/blog-edit/" + this.props.match.params.id} id="BlogPage-Edit" className={"btn-floating btn-large waves-effect waves-light blue " + this.state.btnClass}>
+          <Link to={"/blog-edit/" + this.props.match.params.id} id="BlogPage-Edit" className={"btn-floating btn-large waves-effect waves-light pulse green " + this.state.btnClass}>
             <i className="material-icons">
               create
             </i>

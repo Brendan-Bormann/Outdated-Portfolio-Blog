@@ -41,6 +41,7 @@ class Navbar extends Component {
     API.login(this.state)
     .then(res=> {
         if (res.data.login === 'Successful') {
+            this.setState({ 'title' : 'Admin' });
             alert('Hello Admin.');
         } else {
             alert('Invalid Log-In.');
@@ -117,7 +118,7 @@ class Navbar extends Component {
   render() {
     return (
       <div className="Navbar" onKeyDown={this.storeKeys}>
-        <Link className="clear-style" to="/"><h1 className="Navbar-Title">{this.state.title}</h1></Link>
+        <Link className="clear-style" to="/"><h1 key={this.state.title} className="Navbar-Title animated fadeIn">{this.state.title}</h1></Link>
         <div className="Navbar-Links">
             <Link className="waves-effect waves-light btn btn-flat white nav-links" to={"/"} >Home</Link>
             <Link className="waves-effect waves-light btn btn-flat white nav-links" to={"/portfolio"} >Portfolio</Link>

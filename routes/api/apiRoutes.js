@@ -79,12 +79,13 @@ var transporter = nodemailer.createTransport({
 
 // TODO: set up nodemailer route
 router.post('/mailer', (req, res) => {
+
+    res.send('ok').status(200);
     var mailOptions = {
         from: 'brendan.bormann@gmail.com',
         to: 'brendan.bormann@gmail.com',
         subject: 'An email from your website.',
-        person: req.body.name,
-        message: req.body.message
+        html: "<b>From:<b/><br/>" + req.body.name + "<br /><br />" + "<b>Return Email:<b/><br/>" + req.body.email + "<br /><br />" + "<b>Message:</b><br />" + req.body.message
       };
 
     transporter.sendMail(mailOptions, function(error, info){
