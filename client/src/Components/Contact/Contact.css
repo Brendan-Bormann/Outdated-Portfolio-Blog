@@ -1,11 +1,39 @@
 .Contact {
     margin: 0 5%;
+    margin-bottom: 25vh;
 }
 
 .Contact-Row {
     margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .input-field {
     margin: 0;
+}
+
+.Contact-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    line-height: 0;
+
+    color: black;
+    border: 1px solid black;
+}
+
+.Contact-Info {
+    display: inline-block;
+    margin: 0.5% 2.5%;
+    color: rgb(78, 78, 78);
+    font-weight: bold;
+
+
+    display: flex;
+    justify-content: space-between;
 }

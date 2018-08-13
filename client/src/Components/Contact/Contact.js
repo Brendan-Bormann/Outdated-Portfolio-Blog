@@ -7,23 +7,38 @@ import './Contact.css';
 class Contact extends Component {
 
   state = {
-    name: 'Bob',
-    email: 'sup@123.com',
-    message: "Hi"
+    name: '',
+    email: '',
+    message: ''
   }
 
-  sendMail = (name, message) => {
+  sendMail = event => {
+    event.preventDefault();
 
-    this.setState({
-        'name': name,
-        'message': message
-    });
+    if (this.state.name !== "" && this.state.message !== "") {
 
-    API.sendMail({ 'name': this.state.name, 'email': this.state.email, 'message': this.state.message })
-    .then(res=> {
-        alert(res.status);
-    })
-    .catch(err => console.log(err));
+        API.sendMail({ 'name': this.state.name, 'email': this.state.email, 'message': this.state.message })
+        .then(res=> {
+            if (res.status === 200) {
+              alert('Message was successfully delivered.');
+              this.setState({ 'name': '', 'email': '', 'message': '' });
+            } else {
+              alert('There was a problem. Please email me manually.');
+            }
+        })
+        .catch(err => console.log(err));
+    }
+  }
+
+  handle1Change = (event) => {
+    this.setState({'name': event.target.value});
+    console.log("running");
+  }
+  handle2Change = (event) => {
+    this.setState({'email': event.target.value});
+  }
+  handle3Change = (event) => {
+    this.setState({'message': event.target.value});
   }
 
   
@@ -31,28 +46,35 @@ class Contact extends Component {
   render() {
     return (
       <div className="Contact animated fadeIn">
-        <p onClick={() => this.sendMail('Jimmy', 'What up pooks?')}>Contact Me!</p>
+        <p>I am always looking to speak with, and meet new people. If you have any reason to get in touch with me, then feel free to contact me! I accept calls most the time, and response to emails quickly.</p>
+        <div className="Contact-Info-Container">
+          <p className="Contact-Info">My Email:<span>contact@brendanbormann.com</span></p>
+          <p className="Contact-Info">Personal:<span>brendan.bormann@gmail.com</span></p>
+          <p className="Contact-Info">My Phone:<span>(303)-906-8022</span></p>
+        </div>
         <h4 className="Home-Topic animated fadeInLeft">Send Me a Message</h4>
         <hr />
         <div className="Contact-Row row">
-          <div class="input-field col s8">
-            <input id="name" placeholder="Your Name" type="text"/>
+        <i class="material-icons col s1">person</i>
+          <div class="input-field col s11">
+            <input id="name" placeholder="Your Name" value={this.state.name} type="text" onChange={this.handle1Change}/>
           </div>
         </div>
         <div className="Contact-Row row">
-          <div class="input-field col s12">
-            <input id="email" placeholder="Your Email" type="email"/>
+        <i class="material-icons col s1">drafts</i>
+          <div class="input-field col s11">
+            <input id="email" placeholder="Your Email" value={this.state.email} type="email" onChange={this.handle2Change}/>
           </div>
         </div>
         <div class="row">
-          <form class="col s12">
             <div class="Contact-Row row">
-              <div class="input-field col s12">
-                <textarea id="textarea1" placeholder="Your Message" class="materialize-textarea"></textarea>
+            <i class="material-icons col s1">message</i>
+              <div class="input-field col s11">
+                <textarea id="textarea1" placeholder="Your Message" value={this.state.message} class="materialize-textarea" onChange={this.handle3Change}></textarea>
               </div>
             </div>
-          </form>
         </div>
+        <button className="waves-effect waves-light btn white Contact-btn" onClick={this.sendMail}>Submit  <i class="material-icons">send</i></button>
       </div>
     );
   }

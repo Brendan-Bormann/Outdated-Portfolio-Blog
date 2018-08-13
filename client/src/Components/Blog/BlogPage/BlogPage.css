@@ -1,6 +1,7 @@
 .BlogPage {
     margin: 0 5%;
     word-wrap: break-word;
+    margin-bottom: 10vh;
 }
 
 #BlogPage-Edit {

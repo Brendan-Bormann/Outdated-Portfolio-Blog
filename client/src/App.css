@@ -9,6 +9,11 @@
     font-family: 'Quicksand', sans-serif;
 }
 
+.BackToTop {
+    font-size: 7vw;
+    text-align: center;
+}
+
 .clear-style {
     animation : none;
     animation-delay : 0;

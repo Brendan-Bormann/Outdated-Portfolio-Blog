@@ -78,7 +78,7 @@ class RepoList extends Component {
             {this.loadRepos()}
         </div>
         <hr />
-        <h4 onClick={() => window.scrollTo(0,0)} className="Home-Topic animated fadeInLeft">Back to Top</h4>
+        <h4 onClick={() => window.scrollTo(0,0)} className="BackToTop animated fadeInLeft">Back to Top</h4>
         <br />
         <br />
         <br />
