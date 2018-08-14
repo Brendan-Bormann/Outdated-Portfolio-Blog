@@ -2,6 +2,7 @@
     margin: 0 5%;
     word-wrap: break-word;
     margin-bottom: 10vh;
+    white-space: pre-wrap;
 }
 
 #BlogPage-Edit {
@@ -61,5 +62,10 @@
     }
     .BlogPage-Title {
         font-size: 40pt;
+    }
+    #BlogPage-Edit {
+        position: fixed;
+        top: 99.99%;
+        left: 99.99%;
     }
 }

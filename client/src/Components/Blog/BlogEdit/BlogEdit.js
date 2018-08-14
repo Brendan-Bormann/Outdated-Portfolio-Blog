@@ -35,13 +35,12 @@ class BlogEdit extends Component {
     const { name, value } = event.target;
     let tempBlogState = this.state.blog;
     tempBlogState[name] = value;
+    tempBlogState[name].replace(/\n\r?/g, '<br />'); 
     this.setState({ blog: tempBlogState });
   };
 
   handleFormSubmit = event => {
     event.preventDefault();
-
-    if (this.props.admin) {
       if (this.state.blog.title && this.state.blog.content && this.state.blog.summary && this.state.blog.imageUrl) {
         if (this.state.blog.summary.length < 150) {
           API.updateBlog(this.state.blog._id, {
@@ -61,15 +60,11 @@ class BlogEdit extends Component {
       } else {
         alert("Please fill out all areas.");
       }
-    } else {
-      alert('Only the Admin can edit blogs.');
-    }
   };
 
   deleteBlog = event => {
     event.preventDefault();
 
-    if (this.props.admin) {
       if (window.confirm("Are you sure you want to delete this blog?")) {
         API.deleteBlog(this.state.blog._id)
         .then(response => {
@@ -80,9 +75,6 @@ class BlogEdit extends Component {
         
       }
       else alert("Blog has not been deleted.");
-    } else {
-      alert('Only the Admin can delete blogs.');
-    }
   }
 
   render() {

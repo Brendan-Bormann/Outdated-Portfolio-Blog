@@ -27,7 +27,7 @@ class BlogLI extends Component {
 
   render() {
     return (
-      <Link className="clear-style" to={'/blog/' + this.props.blog._id}>
+      <Link onClick={() => window.scrollTo(0,0)} className="clear-style" to={'/blog/' + this.props.blog._id}>
         <div className="BlogLI animated fadeInUp" key={this.props.blog._id}>
           <div className="BlogLI-Thumbnail">
             <img className="BlogLI-Thumb" alt="thumbnail" src={this.state.imageUrl} />
