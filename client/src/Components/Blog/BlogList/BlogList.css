@@ -20,3 +20,19 @@
 .unhidden {
     display: initial;
 }
+
+@media only screen and (min-width: 768px) {
+    
+}
+
+@media only screen and (min-width: 1000px) {
+    
+}
+
+@media only screen and (min-width: 1200px) {
+    .BlogList {
+        margin: 0 20%;
+        margin-bottom: 5%;
+    }
+}
+

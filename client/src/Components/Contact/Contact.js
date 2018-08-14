@@ -45,14 +45,14 @@ class Contact extends Component {
 
   render() {
     return (
-      <div className="Contact animated fadeIn">
-        <p>I am always looking to speak with, and meet new people. If you have any reason to get in touch with me, then feel free to contact me! I accept calls most the time, and response to emails quickly.</p>
+      <div className="Contact animated fadeInUp">
+        <p>I am always looking to speak with and meet new people. If you have any reason to get in touch with me, then feel free to contact me! I accept calls mostly outside of office hours, and respond to emails quickly.</p>
         <div className="Contact-Info-Container">
           <p className="Contact-Info">My Email:<span>contact@brendanbormann.com</span></p>
           <p className="Contact-Info">Personal:<span>brendan.bormann@gmail.com</span></p>
           <p className="Contact-Info">My Phone:<span>(303)-906-8022</span></p>
         </div>
-        <h4 className="Home-Topic animated fadeInLeft">Send Me a Message</h4>
+        <h4 className="Home-Topic">Send Me a Message</h4>
         <hr />
         <div className="Contact-Row row">
         <i class="material-icons col s1">person</i>

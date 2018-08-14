@@ -23,7 +23,7 @@ class RepoLI extends Component {
   render() {
 
     return (
-      <div className="RepoLI animated fadeInUp">
+      <div className="RepoLI animated fadeInUp delay-1s">
         <div className="RepoLI-Header">
             <p className="RepoLI-Title">
                 {this.formatName(this.props.repo.name)}

@@ -58,7 +58,7 @@ class Blog extends Component {
           </Link>
         </div>
         <hr />
-        <h4 onClick={() => window.scrollTo(0,0)} className="BackToTop animated fadeInLeft">Back to Top</h4>
+        <h4 onClick={() => window.scrollTo(0,0)} className="BackToTop animated fadeIn delay-2s">Back to Top</h4>
         <br />
       </div>
     );

@@ -167,3 +167,13 @@
     all: initial;
     all: unset;
 }
+
+@media only screen and (min-width: 1200px) {
+    .PageTitle {
+        font-size: 40pt;
+        margin: 1% 0;
+    }
+    .BackToTop {
+        font-size: 35pt;
+    }
+}

@@ -7,6 +7,8 @@ import AppContainer from './App.RouteChange';
 
 import './App.css';
 
+import './Media.css';
+
 import ProtectedRoute from './ProtectedRoute.js';
 import API from './utils/API';
 

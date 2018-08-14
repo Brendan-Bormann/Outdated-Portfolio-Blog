@@ -24,7 +24,7 @@ class ProjectLI extends Component {
             <img alt="project-pic" src={this.props.project.imageUrl} />
         </div>
         <div className="ProjectLI-Info">
-            <p className="ProjectLI-Title">{this.props.project.title}</p>
+            <h3 className="ProjectLI-Title">{this.props.project.title}</h3>
             <p className="ProjectLI-Date">{this.state.date}</p>
             <p className="ProjectLI-Summary">{this.props.project.summary}</p>
         </div>

@@ -62,3 +62,32 @@
     font-size: 3.5vw;
     margin: 0;
 }
+
+@media only screen and (min-width: 1000px) {
+    .ProjectLI {
+        width: 80%;
+    }
+    .ProjectLI-Summary {
+        font-size: 23pt;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .ProjectLI {
+        width: 80%;
+        word-wrap: normal;
+    }
+    
+    .ProjectLI-Summary {
+        font-size: 18pt;
+    }
+    
+    .ProjectLI-Title {
+        font-size: 30pt;
+    }
+
+    .ProjectLI-Thumbnail {
+        width: 200px;
+        height: 200px;
+    }
+}

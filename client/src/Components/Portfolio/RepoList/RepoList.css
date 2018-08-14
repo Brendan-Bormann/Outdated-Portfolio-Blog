@@ -1,6 +1,5 @@
 .RepoList {
     margin: 0 5%;
-    margin-bottom: 10%;
 }
 
 .RepoList-Container {
@@ -17,7 +16,7 @@
     justify-content: space-between;
 }
 
-.Git-Profile p {
+.Git-Profile {
     margin: 0;
     font-size: 3.5vw;
 }
@@ -44,7 +43,68 @@
 }
 
 .Git-Profile-Bio {
-    width: 80vw;
     font-size: 4vw;
     text-align: center;
+}
+
+.Git-Info {
+    margin: 0 auto;
+}
+
+@media only screen and (min-width: 768px) {
+    
+}
+
+@media only screen and (min-width: 1000px) {
+    .RepoList {
+        margin: 0 15%;
+    }
+
+    .RepoList {
+        font-size: 20pt;
+    }
+
+    .Git-Profile-Image {
+        width: 40%;
+    }
+
+    .Git-Profile-Content {
+        width: 55%;
+        margin-left: 5%;
+    }
+
+    .Git-Profile-Title {
+        font-size: 28pt;
+    }
+    .Git-Profile-Bio {
+        font-size: 22pt;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .RepoList {
+        margin: 0 25%;
+    }
+
+    .Git-Profile {
+        font-size: 16pt;
+
+    }
+
+    .Git-Profile p {
+        margin: 0;
+    }
+
+    .Git-Profile-Bio {
+        font-size: 22pt;
+    }
+
+    .Git-Profile-Content {
+        margin: 0 1%;
+        text-align: center;
+    }
+
+    .Git-Profile-Image {
+        flex-grow: 1;
+    }
 }

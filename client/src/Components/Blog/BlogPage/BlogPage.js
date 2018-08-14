@@ -56,18 +56,18 @@ class BlogPage extends Component {
 
   render() {
     return (
-      <div className="BlogPage">
-        <h2 className="PageTitle animated fadeIn">
+      <div className="BlogPage animated fadeInUp">
+        <h2 className="PageTitle">
             {this.state.blog.title}
         </h2>
         <hr />
-        <p className="BlogPage-Date animated rotateIn">
+        <p className="BlogPage-Date">
             {this.state.blog.date}
         </p>
-          <img className="BlogPage-Image animated fadeIn delay-1s" alt="article" src={this.state.blog.imageUrl} />
-        <p className="flow-text animated fadeInUp">{this.state.blog.summary}</p>
+          <img className="BlogPage-Image" alt="article" src={this.state.blog.imageUrl} />
+        <p className="flow-text">{this.state.blog.summary}</p>
         <hr />
-        <p className="flow-text animated fadeIn delay-2s">{this.state.blog.content}</p>
+        <p className="flow-text">{this.state.blog.content}</p>
         <br />
         <br />
         <div>
@@ -79,7 +79,7 @@ class BlogPage extends Component {
         </div>
 
         <hr />
-        <h4 onClick={() => window.scrollTo(0,0)} className="BackToTop animated fadeInLeft">Back to Top</h4>
+        <h4 onClick={() => window.scrollTo(0,0)} className="BackToTop animated fadeIn delay-2s">Back to Top</h4>
         <br />
       </div>
     );

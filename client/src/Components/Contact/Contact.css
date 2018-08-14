@@ -37,3 +37,35 @@
     display: flex;
     justify-content: space-between;
 }
+
+.Contact-Info-Container {
+    margin: 7.5% 0;
+}
+
+@media only screen and (min-width: 767px) {
+    .Contact .input-field {
+        height: 50pt;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .Contact {
+        margin: 0 25%;
+        margin-bottom: 15%;
+    }
+
+    .Contact p {
+        font-size: 20pt;
+    }
+
+    .Contact i {
+        font-size: 30pt;
+    }
+    .Contact button {
+        height: 35pt;
+    }
+
+    .input-field {
+        font-size: 25pt;
+    }
+}

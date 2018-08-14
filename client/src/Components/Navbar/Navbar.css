@@ -30,3 +30,41 @@
     margin: 0 5vw;
 }
 
+@media only screen and (min-width: 767px) {
+    .Navbar-Links {
+        margin: 2.5% 0;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .Navbar-Title {
+        font-size: 60pt;
+        margin: 2.5% auto;
+    }
+    .Navbar-Links * {
+        font-size: 25pt;
+    }
+    .Navbar-PageTitle {
+        font-size: 45pt;
+        margin: 2% auto;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .Navbar-Title {
+        font-size: 60pt;
+        margin: 0 auto;
+    }
+    .Navbar-Links {
+        height: 16pt;
+        margin: 2% 20%;
+    }
+    .Navbar-Links * {
+        font-size: 22pt;
+    }
+    .Navbar-PageTitle {
+        font-size: 30pt;
+        margin: 0 auto;
+    }
+}
+

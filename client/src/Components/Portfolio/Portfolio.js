@@ -39,7 +39,6 @@ class Portfolio extends Component {
   }
 
   animateSwap = async (keyOut, keyIn) => {
-
     let tempState = this.state;
     tempState[keyOut] = this.animOut;
     tempState.key++;
@@ -52,7 +51,6 @@ class Portfolio extends Component {
     tempState.listClass3 = this.hidden;
     tempState.listClass4 = this.hidden;
     tempState[keyIn] = " " + this.active + " " + this.animIn;
-    console.log(tempState[keyIn]);
     tempState.key++;
     await setTimeout(() => this.setState(tempState), 400);
 
@@ -61,16 +59,16 @@ class Portfolio extends Component {
   render() {
 
     return (
-      <div className="Portfolio animated fadeIn">
+      <div className="Portfolio animated fadeInUp">
         <p>
           This is a collection of large amounts of my work, skills, and experience. Below I have displayed a lot of stuff.
         </p>
-        <h4 className="Home-Topic animated fadeInLeft">Skills</h4>
+        <h4 className="Home-Topic">Skills</h4>
         <hr />
         <div className="Portfolio-Skills-Tabs">
-          <button className={"waves-effect waves-light btn btn-flat white Portfolio-Btn"} onClick={() => this.changeTab(1)}>Languages</button>
-          <button className={"waves-effect waves-light btn btn-flat white Portfolio-Btn"} onClick={() => this.changeTab(2)}>Node & NPM</button>
-          <button className={"waves-effect waves-light btn btn-flat white Portfolio-Btn"} onClick={() => this.changeTab(3)}>Concepts</button>
+          <button className="waves-effect waves-light btn btn-flat white Portfolio-Btn" onClick={() => this.changeTab(1)}>Languages</button>
+          <button className="waves-effect waves-light btn btn-flat white Portfolio-Btn" onClick={() => this.changeTab(2)}>Node & NPM</button>
+          <button className="waves-effect waves-light btn btn-flat white Portfolio-Btn" onClick={() => this.changeTab(3)}>Concepts</button>
           {/* <button className={"waves-effect waves-light btn btn-flat white Portfolio-Btn"} onClick={() => this.changeTab(4)}>Extras</button> */}
         </div>
         <hr />

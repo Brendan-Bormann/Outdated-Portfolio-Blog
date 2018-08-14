@@ -28,6 +28,7 @@
 .Portfolio-Skills-List {
     width: 100%;
     margin: 0 auto;
+    margin-bottom: 5vh;
 }
 
 .Skill-Box {
@@ -36,7 +37,7 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .Skill-Box ul {
@@ -45,11 +46,73 @@
 
 .Skill-Box li {
     font-size: 3.8vw;
+    text-align: right;
 }
 
 .Skills-P {
     margin: 0;
     display: inline-block;
-    width: 60%;
+    width: 65%;
     font-size: 4vw;
+
+    margin-top: 0;
+
+    border-left: 1px solid gray;
+    padding-left: 2.5%;
+}
+
+.Tab-Active {
+    border-bottom: 4px solid gray;
+}
+
+@media only screen and (min-width: 768px) {
+    .Portfolio-Btn {
+        font-size: 4.5vw;
+        height: 8vw;
+    }
+    .Skill-Box {
+        font-size: 3.25vw;
+        height: 35vw;
+    }
+    .Skills-P {
+        font-size: 3.25vw;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .Portfolio-Btn {
+        font-size: 25pt;
+    }
+    .Skill-Box {
+        font-size: 20pt;
+        height: 125pt;
+    }
+    .Skill-Box li {
+        font-size: 20pt;
+    }
+    .Skills-P {
+        font-size: 20pt;
+    }
+
+    p {
+        font-size: 25pt;
+    }
+
+}
+
+@media only screen and (min-width: 1200px) {
+    .Portfolio {
+        margin: 0 20%;
+    }
+    .Portfolio p {
+        font-size: 18pt;
+    }
+    .Portfolio-Btn {
+        font-size: 25pt;
+        height: 35pt;
+    }
+
+    .Skill-Box li {
+        font-size: 18pt;
+    }
 }
