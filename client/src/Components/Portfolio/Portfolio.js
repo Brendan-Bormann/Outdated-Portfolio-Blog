@@ -61,7 +61,7 @@ class Portfolio extends Component {
     return (
       <div className="Portfolio animated fadeInUp">
         <p>
-          This is a collection of large amounts of my work, skills, and experience. Below I have displayed a lot of stuff.
+          This is a collection of my work, my current skills, and my personal experience. Below you can find some of my most important skills and my project showcase. Please keep in mind, not all of my skills and projects are listed here. I have taken effort to keep this list concise.
         </p>
         <h4 className="Home-Topic">Skills</h4>
         <hr />
@@ -76,10 +76,7 @@ class Portfolio extends Component {
           <div key={this.state.key + 0} className={"animated " + this.state.listClass0} id="Portfolio-Skill">
             <div className="Skill-Box">
               <p>
-                Using the tabs above, you can cycle through my experience and skills in different fields.
-                <br />
-                <br />
-                I would be happy to answer any questions about my skills and experience. Head over to the contact page if you have any questions, comments, or concerns! 
+                Using the tabs above, you can cycle through my experience and skills in different fields. I would be happy to answer any questions about my skills and experience. Head over to the contact page if you have any questions, comments, or concerns! 
               </p>
             </div>
           </div>

@@ -14,7 +14,7 @@ class Home extends Component {
     return (
       <div className="Home animated fadeInUp">
         <p className="">
-        Hello. My name is Brendan Bormann. I'm a web developer, a hobbyist game developer, and sprite artist.  I am very well versed in programming, including knowledge of many different languages, and frameworks. My main focus is full-stack development. I spend most of my time building websites from the ground up, maintaining existing sites, and using a wide range of technologies to ait this process.</p>
+        Hello. My name is Brendan Bormann. I'm a web developer, a hobbyist game developer, and sprite artist.  I am very well versed in programming, including knowledge of many different languages, and frameworks. My main focus is full-stack development. I spend most of my time building websites from the ground up, maintaining existing sites, and using a wide range of technologies to aid this process.</p>
 
         <h4 className="Home-Topic">Experience</h4>
         <hr />

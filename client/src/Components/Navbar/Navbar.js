@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import API from '../../utils/API';
 import './Navbar.css';
 
+import Logo from '../../images/logo.svg';
+
 
 class Navbar extends Component {
 
@@ -118,7 +120,7 @@ class Navbar extends Component {
   render() {
     return (
       <div className="Navbar" onKeyDown={this.storeKeys}>
-        <Link className="clear-style" to="/"><h1 key={this.state.title} className="Navbar-Title animated fadeIn">{this.state.title}</h1></Link>
+        <Link className="clear-style" to="/"><h1 key={this.state.title} className="Navbar-Title tracking-in-expand-fwd">Brendan <img className="logo" src={Logo} /> Bormann</h1></Link>
         <div className="Navbar-Links">
             <Link className="waves-effect waves-light btn btn-flat white nav-links" to={"/"} >Home</Link>
             <Link className="waves-effect waves-light btn btn-flat white nav-links" to={"/portfolio"} >Portfolio</Link>

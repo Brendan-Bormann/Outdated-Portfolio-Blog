@@ -112,7 +112,11 @@
         height: 35pt;
     }
 
+    .Skill-Box {
+        margin-top: 5%;
+    }
+
     .Skill-Box li {
-        font-size: 18pt;
+        font-size: 16pt;
     }
 }
