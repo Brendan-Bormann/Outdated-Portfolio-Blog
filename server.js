@@ -52,7 +52,7 @@ app.get('*', (req, res) => {
 
 
 // Express server port info //
-const PORT = 8080 || process.env.PORT;
+const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
     console.log(`@---Port: ${PORT}---@`);
