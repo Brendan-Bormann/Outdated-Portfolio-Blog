@@ -74,7 +74,9 @@ class Contact extends Component {
               </div>
             </div>
         </div>
+        <div className="contact-btn-holder">
         <button className="waves-effect waves-light btn white Contact-btn" onClick={this.sendMail}>Submit  <i class="material-icons">send</i></button>
+        </div>
       </div>
     );
   }

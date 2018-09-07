@@ -55,7 +55,7 @@ class RepoList extends Component {
 
   render() {
     return (
-      <div className="RepoList animated fadeInUp">
+      <div className="RepoList animated fadeIn">
         <div className="Git-Info">
             <div className="Git-Profile">
                 <div className="Git-Profile-Image">
@@ -75,7 +75,7 @@ class RepoList extends Component {
             </div>
         </div>
         <br />
-        <h2 className="PageTitle animated">My Repos</h2>
+        <h2 className="PageTitle">My Repos</h2>
         <hr />
         <div className="RepoList-Container">
             {this.loadRepos()}
