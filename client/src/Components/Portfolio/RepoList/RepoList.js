@@ -53,6 +53,8 @@ class RepoList extends Component {
       });
   }
 
+  // possible addition here to fix animations
+
   render() {
     return (
       <div className="RepoList animated fadeIn">
